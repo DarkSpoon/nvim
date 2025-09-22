@@ -1,3 +1,5 @@
+-- Stolen from kickstart, thanks!
+
 -- LSP Plugins
 return {
   {
