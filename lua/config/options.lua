@@ -11,6 +11,8 @@ vim.opt.undofile = true
 
 -- Set clipboard for pasting from anywhere
 vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamed"
+-- vim.opt.clipboard = ""
 
 -- Set tab width
 vim.opt.expandtab = true

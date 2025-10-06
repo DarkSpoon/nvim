@@ -21,3 +21,41 @@ vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>', { desc = '[T]oggle Nvim-Tree'
 vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle [F]loaterm' })
 vim.keymap.set('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle [F]loaterm' })
 
+-- Tab keymaps
+vim.keymap.set('n', '<leader><Tab><Tab>', ':tabnext<CR>', { desc = 'Next tab' })
+vim.keymap.set('n', '<leader><Tab>p', ':tabprevious<CR>', { desc = 'Previous tab' })
+vim.keymap.set('n', '<leader><Tab>n', ':tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader><Tab>c', ':tabclose<CR>', { desc = 'Close tab' })
+vim.keymap.set('n', '<leader><Tab>-', ':tabmove -<CR>', { desc = 'Move tab left' })
+vim.keymap.set('n', '<leader><Tab>+', ':tabmove +<CR>', { desc = 'Move tab right' })
+vim.keymap.set('n', '<leader><Tab>f', ':tabfind ', { desc = 'Find tab' })
+
+-- Black hole delete
+vim.keymap.set('n', 'd', '"_d', { desc = 'Delete text forever' })
+vim.keymap.set('v', 'd', '"_d', { desc = 'Delete text forever' })
+vim.keymap.set('n', 'dd', '"_dd', { desc = 'Delete line forever' })
+vim.keymap.set('v', 'dd', '"_dd', { desc = 'Delete line forever' })
+vim.keymap.set('n', 'x', 'd', { desc = 'Cut text' })
+vim.keymap.set('v', 'x', 'd', { desc = 'Cut text' })
+vim.keymap.set('n', 'xx', 'dd', { desc = 'Cut entire line' })
+vim.keymap.set('v', 'xx', 'dd', { desc = 'Cut entire line' })
+
+-- Go keybinds
+vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
+-- vim.cmd("autocmd FileType go nmap <Leader>gc :lua require('go.comment').gen()")
+-- vim.cmd("autocmd FileType go vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()', { desc = 'Generate Go Comment' }")
+vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()<CR>', { desc = 'Generate Go Comment' })
+
+-- Find/Replace
+vim.keymap.set('n', '<Leader>sl', function()
+    local match = vim.fn.input("Find: ")
+    local replace = vim.fn.input("Replace with: ")
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+end
+    , {desc = "[S]earch and Replace on current [l]ine"})
+vim.keymap.set('n', '<Leader>sa', function()
+    local match = vim.fn.input("Find: ")
+    local replace = vim.fn.input("Replace with: ")
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+end
+    , {desc = "[S]earch and Replace [a]ll instances"})
