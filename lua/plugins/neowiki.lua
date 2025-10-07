@@ -1,5 +1,6 @@
 return {
     "echaya/neowiki.nvim",
+    event = "VeryLazy",
     opts = {
         wiki_dirs = {
             -- neowiki.nvim supports both absolute and tilde-expanded paths
