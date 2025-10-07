@@ -1,0 +1,29 @@
+return {
+    "echaya/neowiki.nvim",
+    opts = {
+        wiki_dirs = {
+            -- neowiki.nvim supports both absolute and tilde-expanded paths
+            { name = "Work", path = "C:\\Users\\jpayne\\wiki\\work" },
+            { name = "Personal", path = "C:\\Users\\jpayne\\wiki\\personal" },
+        },
+        keymaps = {
+            -- Jumps to the index page of the current wiki.
+            jump_to_index = "<Home>",
+            -- Renames the current wiki page and updates backlinks.
+            rename_page = "<leader>nr",
+            -- Deletes the current wiki page and updates backlinks.
+            delete_page = "<leader>nd",
+            -- Inserts a link to another wiki page.
+            insert_link = "<leader>ni",
+            -- Removes all links in the current file that point to non-existent pages.
+            cleanup_links = "<leader>nc",
+
+            -- Toggles the status of a gtd item.
+            -- Works on the current line in Normal mode and on the selection in Visual mode.
+            toggle_task = "<leader>nt",
+        },
+    },
+    init = function(opts)
+        require("neowiki").setup(opts)
+    end,
+}

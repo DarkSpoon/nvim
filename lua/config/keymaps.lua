@@ -52,10 +52,22 @@ vim.keymap.set('n', '<Leader>sl', function()
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
-    , {desc = "[S]earch and Replace on current [l]ine"})
+, {desc = "[S]earch and Replace on current [l]ine"})
 vim.keymap.set('n', '<Leader>sa', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
-    , {desc = "[S]earch and Replace [a]ll instances"})
+, {desc = "[S]earch and Replace [a]ll instances"})
+
+
+-- Neowiki note taking
+vim.keymap.set('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
+vim.keymap.set('n','<Leader>no', "<cmd>lua require('neowiki').open_wiki()<cr>", { desc = "[o]pen wiki index" } )
+vim.keymap.set('n','<Leader>nO', "<cmd>lua require('neowiki').open_wiki_floating()<cr>", { desc = "[O]pen Wiki in floating window" } )
+vim.keymap.set('n','<Leader>nT', "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>", { desc = "Open Wiki in [T]ab" } )
+vim.keymap.set('n','<Leader>nt', "", { desc = "[t]oggle task" } )
+vim.keymap.set('n','<Leader>nr', "", { desc = "[r]ename wiki page" } )
+vim.keymap.set('n','<Leader>nd', "", { desc = "[d]elete wiki page" } )
+vim.keymap.set('n','<Leader>ni', "", { desc = "[i]nsert wiki page" } )
+vim.keymap.set('n','<Leader>nc', "", { desc = "[c]leanup links in wiki page" } )
