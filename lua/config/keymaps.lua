@@ -15,7 +15,12 @@ vim.keymap.set('n', '<C-l>', ':set hlsearch!<cr><C-l>', { desc = 'Toggle search 
 vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- nvim-tree keymaps
-vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>', { desc = '[T]oggle Nvim-Tree' })
+-- vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>', { desc = '[T]oggle Nvim-Tree' })
+
+-- Fyler keymaps
+vim.keymap.set('n', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
+vim.keymap.set('v', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
+vim.keymap.set('n', '<leader><F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
 
 -- nvim-Floaterm keymaps
 vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle [F]loaterm' })
