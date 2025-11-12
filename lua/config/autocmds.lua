@@ -33,3 +33,25 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd("tabnext " .. current_tab)
   end,
 })
+
+-- Hilight the line on insert mode only
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  group = augroup("HiCursor"),
+  callback = function()
+    vim.cmd("set cursorline")
+  end,
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  group = augroup("NoHiCursor"),
+  callback = function()
+    vim.cmd("set nocursorline")
+  end,
+})
+
+-- Move cursor forward one character when leaving Insert mode
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  group = augroup("MoveCursor"),
+  callback = function()
+    vim.cmd(":normal! `^")
+  end,
+})
