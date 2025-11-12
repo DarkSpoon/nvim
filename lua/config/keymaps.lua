@@ -51,7 +51,7 @@ vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
 -- vim.cmd("autocmd FileType go vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()', { desc = 'Generate Go Comment' }")
 vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()<CR>', { desc = 'Generate Go Comment' })
 
--- Find/Replace
+-- Search
 vim.keymap.set('n', '<Leader>sl', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
@@ -64,7 +64,7 @@ vim.keymap.set('n', '<Leader>sa', function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "[S]earch and Replace [a]ll instances"})
-
+vim.keymap.set('n', '<Leader>sc', ':set hlsearch!<cr><C-l>', {desc ="[C]lear [S]earch results"})
 
 -- Neowiki note taking
 vim.keymap.set('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
