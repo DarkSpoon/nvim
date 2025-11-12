@@ -47,8 +47,6 @@ vim.keymap.set('v', 'xx', 'dd', { desc = 'Cut entire line' })
 
 -- Go keybinds
 vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
--- vim.cmd("autocmd FileType go nmap <Leader>gc :lua require('go.comment').gen()")
--- vim.cmd("autocmd FileType go vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()', { desc = 'Generate Go Comment' }")
 vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()<CR>', { desc = 'Generate Go Comment' })
 
 -- Search
@@ -76,3 +74,4 @@ vim.keymap.set('n','<Leader>nr', "", { desc = "[r]ename wiki page" } )
 vim.keymap.set('n','<Leader>nd', "", { desc = "[d]elete wiki page" } )
 vim.keymap.set('n','<Leader>ni', "", { desc = "[i]nsert wiki page" } )
 vim.keymap.set('n','<Leader>nc', "", { desc = "[c]leanup links in wiki page" } )
+
