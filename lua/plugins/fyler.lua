@@ -1,5 +1,6 @@
 return {
     "A7Lavinraj/fyler.nvim",
+    event="VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     -- dependencies = { "nvim-mini/mini.icons" },
     branch = "stable",
