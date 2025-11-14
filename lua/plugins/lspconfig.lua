@@ -26,7 +26,27 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {     -- notification section added to override nvim.notify with fidget.notify
+          notification = {
+            override_vim_notify = true,
+          },
+          window = {
+            normal_hl = "Comment",      -- Base highlight group in the notification window
+            winblend = 100,             -- Background color opacity in the notification window
+            border = "rounded",         -- Border around the notification window
+            zindex = 45,                -- Stacking priority of the notification window
+            max_width = 0,              -- Maximum width of the notification window
+            max_height = 0,             -- Maximum height of the notification window
+            x_padding = 1,              -- Padding from right edge of window boundary
+            y_padding = 0,              -- Padding from bottom edge of window boundary
+            align = "bottom",           -- How to align the notification window
+            relative = "editor",        -- What the notification window position is relative to
+            tabstop = 4,                -- Width of each tab character in the notification window
+            avoid = {}                  -- Filetypes the notification window should avoid
+                                        -- e.g., { "aerial", "NvimTree", "neotest-summary" }
+          },
+        }
+      },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -37,6 +57,7 @@ return {
       -- LSP is an initialism you've probably heard, but might not understand what it is.
       --
       -- LSP stands for Language Server Protocol. It's a protocol that helps editors
+      --
       -- and language tooling communicate in a standardized fashion.
       --
       -- In general, you have a "server" which is some tool built to understand a particular
