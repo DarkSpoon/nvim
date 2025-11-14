@@ -34,7 +34,7 @@ return{
                     "<leader>w",
                     group = "windows",
                     proxy = "<c-w>",
-                    expand = function()
+                   expand = function()
                         return require("which-key.extras").expand.win()
                     end,
                 },

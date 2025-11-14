@@ -1,4 +1,4 @@
--- Move Lines
+--Move Lines 
 vim.keymap.set({ 'n', 'x' }, '<M-S-Up>', ':move -2<cr>', { desc = 'Move Line Up' })
 vim.keymap.set({ 'n', 'x' }, '<M-S-Down>', ':move +1<cr>', { desc = 'Move Line Down' })
 vim.keymap.set('i', '<M-S-Up>', '<C-o>:move -2<cr>', { desc = 'Move Line Up' })
@@ -6,9 +6,6 @@ vim.keymap.set('i', '<M-S-Down>', '<C-o>:move +1<cr>', { desc = 'Move Line Down'
 
 -- Quickly source current file / execute Lua code
 vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
-
--- Toggle search highlighting.
-vim.keymap.set('n', '<C-l>', ':set hlsearch!<cr><C-l>', { desc = 'Toggle search highlighting' })
 
 -- Diagnostic keymaps
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -37,10 +34,16 @@ vim.keymap.set('n', 'd', '"_d', { desc = 'Delete text forever' })
 vim.keymap.set('v', 'd', '"_d', { desc = 'Delete text forever' })
 vim.keymap.set('n', 'dd', '"_dd', { desc = 'Delete line forever' })
 vim.keymap.set('v', 'dd', '"_dd', { desc = 'Delete line forever' })
-vim.keymap.set('n', 'x', 'd', { desc = 'Cut text' })
-vim.keymap.set('v', 'x', 'd', { desc = 'Cut text' })
-vim.keymap.set('n', 'xx', 'dd', { desc = 'Cut entire line' })
-vim.keymap.set('v', 'xx', 'dd', { desc = 'Cut entire line' })
+vim.keymap.set('n', '<Del>', '"_x', { desc = 'Delete character forever' })
+vim.keymap.set('v', '<Del>', '"_x', { desc = 'Delete character forever' })
+vim.keymap.set('n', 'x', '"_x', { desc = 'Delete character forever' })
+vim.keymap.set('v', 'x', '"_x', { desc = 'Delete character forever' })
+
+-- Cut/Paste
+vim.keymap.set('n', '<C-x>', 'd', { desc = 'Cut text' })
+vim.keymap.set('v', '<C-x>', 'd', { desc = 'Cut text' })
+vim.keymap.set('n', '<C-x>x', 'dd', { desc = 'Cut entire line' })
+vim.keymap.set('v', '<C-x>x', 'dd', { desc = 'Cut entire line' })
 
 -- Go keybinds
 vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
@@ -59,7 +62,7 @@ vim.keymap.set('n', '<Leader>sa', function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "[S]earch and Replace [a]ll instances"})
-vim.keymap.set('n', '<Leader>sc', ':set hlsearch!<cr><C-l>', {desc ="[C]lear [S]earch results"})
+vim.keymap.set('n', '<Leader>st', ':set hlsearch!<cr><C-l>', {desc ="[T]oggle [S]earch hilighting"})
 
 -- Neowiki note taking
 vim.keymap.set('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
@@ -72,3 +75,5 @@ vim.keymap.set('n','<Leader>nd', "", { desc = "[d]elete wiki page" } )
 vim.keymap.set('n','<Leader>ni', "", { desc = "[i]nsert wiki page" } )
 vim.keymap.set('n','<Leader>nc', "", { desc = "[c]leanup links in wiki page" } )
 
+-- Buffer stuff
+vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "[d]elete current [b]uffer" } )
