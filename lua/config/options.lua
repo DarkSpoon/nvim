@@ -27,6 +27,9 @@ vim.opt.smartcase = true
 --Default windows border
 vim.opt.winborder = 'rounded'
 
+--Set gui colors
+vim.opt.termguicolors = true
+
 -- Set backup, undo, and swp locations
 -- vim.opt.undodir = "~/.nvim/.undo//"
 -- vim.opt.backupdir = "~/.nvim/.backup//"
