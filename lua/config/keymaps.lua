@@ -12,9 +12,9 @@ vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current 
 vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Fyler keymaps
-vim.keymap.set('n', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
-vim.keymap.set('v', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
-vim.keymap.set('n', '<leader><F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
+-- vim.keymap.set('n', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
+-- vim.keymap.set('v', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
+-- vim.keymap.set('n', '<leader><F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
 
 -- Floaterm keymaps
 vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle [F]loaterm' })
@@ -77,3 +77,8 @@ vim.keymap.set('n','<Leader>nc', "", { desc = "[c]leanup links in wiki page" } )
 
 -- Buffer stuff
 vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "[d]elete current [b]uffer" } )
+
+-- Yazi
+vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+vim.keymap.set('v', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+vim.keymap.set('n', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
