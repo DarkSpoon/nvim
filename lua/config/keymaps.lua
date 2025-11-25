@@ -82,3 +82,7 @@ vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "[d]elete current [b]uffer"
 vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 vim.keymap.set('v', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 vim.keymap.set('n', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+
+-- LSP
+vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
+
