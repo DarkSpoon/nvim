@@ -1,6 +1,8 @@
 --Move Lines 
-vim.keymap.set('n', 'm' , ':move +1<cr>', { desc = 'Move Line Down' })
-vim.keymap.set('n', '<C-m>' , ':move -2<cr>', { desc = 'Move Line Up' })
+vim.keymap.set('n', '<leader>md' , ':move +1<cr>', { desc = 'Move Line Down' })
+vim.keymap.set('v', '<leader>md' , ':move +1<cr>', { desc = 'Move Line Down' })
+vim.keymap.set('n', '<leader>mu', ':move -2<cr>', { desc = 'Move Line Up' })
+vim.keymap.set('v', '<leader>mu', ':move -2<cr>', { desc = 'Move Line Up' })
 
 -- Quickly source current file / execute Lua code
 vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
@@ -36,15 +38,15 @@ vim.keymap.set('v', '<Del>', '"_x', { desc = 'Delete character forever' })
 vim.keymap.set('n', 'x', '"_x', { desc = 'Delete character forever' })
 vim.keymap.set('v', 'x', '"_x', { desc = 'Delete character forever' })
 
--- Cut/Paste
--- vim.keymap.set('n', 'x', 'd', { desc = 'Cut text' })
+-- Yank then Delete
+-- vim.keymap.set('n', 'x', 'd', { desc = 'Cut text'})
 -- vim.keymap.set('v', 'x', 'd', { desc = 'Cut text' })
 -- vim.keymap.set('n', 'xx', 'd', { desc = 'Cut text' })
 -- vim.keymap.set('v', 'xx', 'dd', { desc = 'Cut text' })
 vim.keymap.set('n', '<C-x>', 'd', { desc = 'Cut text' })
 vim.keymap.set('v', '<C-x>', 'd', { desc = 'Cut text' })
-vim.keymap.set('v', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 vim.keymap.set('n', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
+vim.keymap.set('v', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 
 -- Go keybinds
 vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
