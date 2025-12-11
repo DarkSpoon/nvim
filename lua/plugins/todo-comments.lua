@@ -8,6 +8,13 @@ return {
         sign_priority = 8, -- sign priority
         -- keywords recognized as todo comments
         keywords = {
+            -- FIX:
+            -- TODO:
+            -- HACK:
+            -- WARN:
+            -- PERF:
+            -- NOTE:
+            -- TEST:
             FIX = {
                 icon = " ", -- icon used for the sign, and in search results
                 color = "error", -- can be a hex color, or a named color (see below)
@@ -15,7 +22,7 @@ return {
                 -- signs = false, -- configure signs for some keywords individually
             },
             TODO = { icon = " ", color = "info" },
-            HACK = { icon = " ", color = "warning" },
+            HACK = { icon = " ", color = "hack" },
             WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
             PERF = { icon = " ", color = "performance", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
             NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
@@ -47,9 +54,10 @@ return {
         colors = { --Catppuccin Macchiato colors
             error = { "#ED8796" }, -- RED
             warning = {  "#F5A97F" }, -- PEACH
+            hack = { "#EEd49f" }, -- YELLOW
             info = { "#F4DBD6" }, -- ROSEWATER
             default = { "#C6A0F6" }, -- MAUVE
-            performance = { "#7dc4e4" }, -- SAPPHIRE
+            performance = { "#7DC4E4" }, -- SAPPHIRE
             test = { "#CAD3F5" } -- TEXT
         },
         search = {
