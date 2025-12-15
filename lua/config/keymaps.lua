@@ -66,14 +66,14 @@ vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 vim.keymap.set('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 
 -- Tab keymaps
-vim.keymap.set('n', '<leader><Tab><Tab>', ':tabnext<CR>', { desc = 'Next tab' })
-vim.keymap.set('n', '<leader><Tab>p', ':tabprevious<CR>', { desc = 'Previous tab' })
-vim.keymap.set('n', '<leader><Tab>n', ':tabnew<CR>', { desc = 'New tab' })
-vim.keymap.set('n', '<leader><Tab>c', ':tabclose<CR>', { desc = 'Close tab' })
-vim.keymap.set('n', '<leader><Tab>o', ':tabonly<CR>', { desc = 'Close other tabs' })
-vim.keymap.set('n', '<leader><Tab>-', ':tabmove -<CR>', { desc = 'Move tab left' })
-vim.keymap.set('n', '<leader><Tab>+', ':tabmove +<CR>', { desc = 'Move tab right' })
-vim.keymap.set('n', '<leader><Tab>f', ':tabfind ', { desc = 'Find tab' })
+-- vim.keymap.set('n', '<leader><Tab><Tab>', ':tabnext<CR>', { desc = 'Next tab' })
+-- vim.keymap.set('n', '<leader><Tab>p', ':tabprevious<CR>', { desc = 'Previous tab' })
+-- vim.keymap.set('n', '<leader><Tab>n', ':tabnew<CR>', { desc = 'New tab' })
+-- vim.keymap.set('n', '<leader><Tab>c', ':tabclose<CR>', { desc = 'Close tab' })
+-- vim.keymap.set('n', '<leader><Tab>o', ':tabonly<CR>', { desc = 'Close other tabs' })
+-- vim.keymap.set('n', '<leader><Tab>-', ':tabmove -<CR>', { desc = 'Move tab left' })
+-- vim.keymap.set('n', '<leader><Tab>+', ':tabmove +<CR>', { desc = 'Move tab right' })
+-- vim.keymap.set('n', '<leader><Tab>f', ':tabfind ', { desc = 'Find tab' })
 
 -- Black hole delete
 vim.keymap.set('n', 'd', '"_d', { desc = 'Delete text forever' })
