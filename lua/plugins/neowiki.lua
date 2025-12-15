@@ -6,6 +6,8 @@ return {
             -- neowiki.nvim supports both absolute and tilde-expanded paths
             { name = "Work", path = "C:\\Users\\jpayne\\wiki\\work" },
             { name = "Personal", path = "C:\\Users\\jpayne\\wiki\\personal" },
+            -- { name = "Work", path = "/home/jpayne/Documents/wiki/Work" },
+            -- { name = "Personal", path = "/home/jpayne/Documents/wiki/Personal" },
         },
         keymaps = {
             -- Jumps to the index page of the current wiki.

@@ -34,3 +34,6 @@ vim.opt.termguicolors = true
 -- vim.opt.undodir = "~/.nvim/.undo//"
 -- vim.opt.backupdir = "~/.nvim/.backup//"
 -- vim.opt.directory = "~/.nvim/.swp//"
+
+-- Disable inlay_hints
+vim.lsp.inlay_hint.enable(false)

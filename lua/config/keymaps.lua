@@ -1,8 +1,54 @@
+-- Snagged from LazyVim config --
+local map = vim.keymap.set
+--Better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+
+-- Move to window using the <ctrl> hjkl keys
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+
+-- Buffers
+map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "[P]rev Buffer" })
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "[N]ext Buffer" })
+
+-- save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- /Snagged from LazyVim config --
+
+-- Files
+map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
+map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
+
 --Move Lines 
-vim.keymap.set('n', '<leader>md' , ':move +1<cr>', { desc = 'Move Line Down' })
-vim.keymap.set('v', '<leader>md' , ':move +1<cr>', { desc = 'Move Line Down' })
-vim.keymap.set('n', '<leader>mu', ':move -2<cr>', { desc = 'Move Line Up' })
-vim.keymap.set('v', '<leader>mu', ':move -2<cr>', { desc = 'Move Line Up' })
+vim.keymap.set('n', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
+vim.keymap.set('v', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
+vim.keymap.set('n', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
+vim.keymap.set('v', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
+vim.keymap.set('i', '<A-j>' , '<Esc>:move +1<cr>==gi', { desc = 'Move Line Down' })
+
+vim.keymap.set('n', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
+vim.keymap.set('v', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
+vim.keymap.set('n', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
+vim.keymap.set('v', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
+vim.keymap.set('i', '<A-k>' , '<Esc>:move -2<cr>==gi', { desc = 'Move Line Up' })
 
 -- Quickly source current file / execute Lua code
 vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
@@ -24,6 +70,7 @@ vim.keymap.set('n', '<leader><Tab><Tab>', ':tabnext<CR>', { desc = 'Next tab' })
 vim.keymap.set('n', '<leader><Tab>p', ':tabprevious<CR>', { desc = 'Previous tab' })
 vim.keymap.set('n', '<leader><Tab>n', ':tabnew<CR>', { desc = 'New tab' })
 vim.keymap.set('n', '<leader><Tab>c', ':tabclose<CR>', { desc = 'Close tab' })
+vim.keymap.set('n', '<leader><Tab>o', ':tabonly<CR>', { desc = 'Close other tabs' })
 vim.keymap.set('n', '<leader><Tab>-', ':tabmove -<CR>', { desc = 'Move tab left' })
 vim.keymap.set('n', '<leader><Tab>+', ':tabmove +<CR>', { desc = 'Move tab right' })
 vim.keymap.set('n', '<leader><Tab>f', ':tabfind ', { desc = 'Find tab' })
@@ -80,11 +127,14 @@ vim.keymap.set('n','<Leader>nc', "", { desc = "[c]leanup links in wiki page" } )
 
 -- Buffer stuff
 vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "[d]elete current [b]uffer" } )
+vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
 
--- Yazi
+-- Yazi <cmd>
 vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 vim.keymap.set('v', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 vim.keymap.set('n', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+vim.keymap.set('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 
 -- LSP
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
