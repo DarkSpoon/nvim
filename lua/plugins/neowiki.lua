@@ -1,23 +1,8 @@
-local function getOS()
-	-- ask LuaJIT first
-	if jit then
-		return jit.os
-	end
-
-	-- Unix, Linux variants
-	local fh,err = assert(io.popen("uname -o 2>/dev/null","r"))
-	if fh then
-		Osname = fh:read()
-	end
-
-	return Osname or "Windows"
-end
-
-local osname = getOS()
+local osname = vim.loop.os_uname().sysname
 local workPath = ''
 local personalPath = ''
 
-if osname == 'Windows' then
+if osname == 'Windows_NT' then
     workPath = "C:\\Users\\jpayne\\wiki\\work"
     personalPath = "C:\\Users\\jpayne\\wiki\\personal"
 else
