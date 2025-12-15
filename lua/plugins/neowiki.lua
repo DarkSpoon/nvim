@@ -1,11 +1,40 @@
+local function getOS()
+	-- ask LuaJIT first
+	if jit then
+		return jit.os
+	end
+
+	-- Unix, Linux variants
+	local fh,err = assert(io.popen("uname -o 2>/dev/null","r"))
+	if fh then
+		Osname = fh:read()
+	end
+
+	return Osname or "Windows"
+end
+
+local osname = getOS()
+local workPath = ''
+local personalPath = ''
+
+if osname == 'Windows' then
+    workPath = "C:\\Users\\jpayne\\wiki\\work"
+    personalPath = "C:\\Users\\jpayne\\wiki\\personal"
+else
+    workPath = "/home/jpayne/Documents/wiki/work"
+    personalPath = "/home/jpayne/Documents/wiki/personal"
+end
+
 return {
     "echaya/neowiki.nvim",
     event = "VeryLazy",
     opts = {
         wiki_dirs = {
             -- neowiki.nvim supports both absolute and tilde-expanded paths
-            { name = "Work", path = "C:\\Users\\jpayne\\wiki\\work" },
-            { name = "Personal", path = "C:\\Users\\jpayne\\wiki\\personal" },
+            { name = "Work", path = workPath },
+            { name = "Personal", path = personalPath },
+            -- { name = "Work", path = "C:\\Users\\jpayne\\wiki\\work" },
+            -- { name = "Personal", path = "C:\\Users\\jpayne\\wiki\\personal" },
             -- { name = "Work", path = "/home/jpayne/Documents/wiki/Work" },
             -- { name = "Personal", path = "/home/jpayne/Documents/wiki/Personal" },
         },
