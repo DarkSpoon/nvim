@@ -36,4 +36,4 @@ vim.opt.termguicolors = true
 -- vim.opt.directory = "~/.nvim/.swp//"
 
 -- Disable inlay_hints
-vim.lsp.inlay_hint.enable(false)
+-- vim.lsp.inlay_hint.enable(false)

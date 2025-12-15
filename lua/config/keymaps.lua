@@ -19,8 +19,8 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Wi
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- Buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "[P]rev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "[N]ext Buffer" })
+map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
@@ -38,23 +38,23 @@ map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
 
 --Move Lines 
-vim.keymap.set('n', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
-vim.keymap.set('v', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
-vim.keymap.set('n', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
-vim.keymap.set('v', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
-vim.keymap.set('i', '<A-j>' , '<Esc>:move +1<cr>==gi', { desc = 'Move Line Down' })
-
-vim.keymap.set('n', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
-vim.keymap.set('v', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
-vim.keymap.set('n', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
-vim.keymap.set('v', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
-vim.keymap.set('i', '<A-k>' , '<Esc>:move -2<cr>==gi', { desc = 'Move Line Up' })
+-- vim.keymap.set('n', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
+-- vim.keymap.set('v', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
+-- vim.keymap.set('n', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
+-- vim.keymap.set('v', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
+-- vim.keymap.set('i', '<A-j>' , '<Esc>:move +1<cr>==gi', { desc = 'Move Line Down' })
+--
+-- vim.keymap.set('n', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
+-- vim.keymap.set('v', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
+-- vim.keymap.set('n', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
+-- vim.keymap.set('v', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
+-- vim.keymap.set('i', '<A-k>' , '<Esc>:move -2<cr>==gi', { desc = 'Move Line Up' })
 
 -- Quickly source current file / execute Lua code
 vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
 
 -- Fyler keymaps
 -- vim.keymap.set('n', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
@@ -62,8 +62,8 @@ vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diag
 -- vim.keymap.set('n', '<leader><F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
 
 -- Floaterm keymaps
-vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle [F]loaterm' })
-vim.keymap.set('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle [F]loaterm' })
+vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
+vim.keymap.set('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 
 -- Tab keymaps
 vim.keymap.set('n', '<leader><Tab><Tab>', ':tabnext<CR>', { desc = 'Next tab' })
@@ -105,28 +105,28 @@ vim.keymap.set('n', '<Leader>sl', function()
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
-, {desc = "[S]earch and Replace on current [l]ine"})
+, {desc = "Search and Replace on current line"})
 vim.keymap.set('n', '<Leader>sa', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
-, {desc = "[S]earch and Replace [a]ll instances"})
-vim.keymap.set('n', '<Leader>st', ':set hlsearch!<cr><C-l>', {desc ="[T]oggle [S]earch hilighting"})
+, {desc = "Search and Replace all instances"})
+vim.keymap.set('n', '<Leader>st', ':set hlsearch!<cr><C-l>', {desc ="Toggle Search hilighting"})
 
 -- Neowiki note taking
 vim.keymap.set('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
-vim.keymap.set('n','<Leader>no', "<cmd>lua require('neowiki').open_wiki()<cr>", { desc = "[o]pen wiki index" } )
-vim.keymap.set('n','<Leader>nO', "<cmd>lua require('neowiki').open_wiki_floating()<cr>", { desc = "[O]pen Wiki in floating window" } )
-vim.keymap.set('n','<Leader>nT', "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>", { desc = "Open Wiki in [T]ab" } )
-vim.keymap.set('n','<Leader>nt', "", { desc = "[t]oggle task" } )
-vim.keymap.set('n','<Leader>nr', "", { desc = "[r]ename wiki page" } )
-vim.keymap.set('n','<Leader>nd', "", { desc = "[d]elete wiki page" } )
-vim.keymap.set('n','<Leader>ni', "", { desc = "[i]nsert wiki page" } )
-vim.keymap.set('n','<Leader>nc', "", { desc = "[c]leanup links in wiki page" } )
+vim.keymap.set('n','<Leader>no', "<cmd>lua require('neowiki').open_wiki()<cr>", { desc = "Open wiki index" } )
+vim.keymap.set('n','<Leader>nO', "<cmd>lua require('neowiki').open_wiki_floating()<cr>", { desc = "Open Wiki in floating window" } )
+vim.keymap.set('n','<Leader>nT', "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>", { desc = "Open Wiki in Tab" } )
+vim.keymap.set('n','<Leader>nt', "", { desc = "Toggle task" } )
+vim.keymap.set('n','<Leader>nr', "", { desc = "Rename wiki page" } )
+vim.keymap.set('n','<Leader>nd', "", { desc = "Delete wiki page" } )
+vim.keymap.set('n','<Leader>ni', "", { desc = "Insert wiki page" } )
+vim.keymap.set('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
-vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "[d]elete current [b]uffer" } )
+vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "Delete current buffer" } )
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
 
