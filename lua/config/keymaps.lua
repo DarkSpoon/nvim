@@ -139,3 +139,6 @@ vim.keymap.set('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 -- LSP
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
 
+-- Telescope
+-- local TelescopeBuiltin = require('telescope.builtin')
+-- vim.keymap.set('n', '<leader>sg', TelescopeBuiltin.live_grep, { desc = 'Search Files with Grep' })
