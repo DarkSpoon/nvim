@@ -6,17 +6,17 @@ map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr =
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
--- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+-- Move to window using the <alt> hjkl keys
+map("n", "<A-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
+map("n", "<A-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
+map("n", "<A-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
+map("n", "<A-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
--- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+-- Resize window using <alt> arrow keys
+map("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<A-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<A-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+map("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- Buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
@@ -37,18 +37,18 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
 
---Move Lines 
+--Move Lines This is now handled by mini.lua
 -- vim.keymap.set('n', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
 -- vim.keymap.set('v', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('n', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('v', '<A-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('i', '<A-j>' , '<Esc>:move +1<cr>==gi', { desc = 'Move Line Down' })
+-- vim.keymap.set('n', '<C-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
+-- vim.keymap.set('v', '<C-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
+-- vim.keymap.set('i', '<C-j>' , '<Esc>:move +1<cr>==gi', { desc = 'Move Line Down' })
 --
 -- vim.keymap.set('n', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
 -- vim.keymap.set('v', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('n', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('v', '<A-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('i', '<A-k>' , '<Esc>:move -2<cr>==gi', { desc = 'Move Line Up' })
+-- vim.keymap.set('n', '<C-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
+-- vim.keymap.set('v', '<C-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
+-- vim.keymap.set('i', '<C-k>' , '<Esc>:move -2<cr>==gi', { desc = 'Move Line Up' })
 
 -- Quickly source current file / execute Lua code
 vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
@@ -100,6 +100,8 @@ vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
 vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()<CR>', { desc = 'Generate Go Comment' })
 
 -- Search
+vim.keymap.set('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
+vim.keymap.set('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 vim.keymap.set('n', '<Leader>sl', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
@@ -129,6 +131,8 @@ vim.keymap.set('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "Delete current buffer" } )
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
+vim.keymap.set("n", "<leader>bf", ":bfirst<cr>", { desc = "First Buffer" })
+vim.keymap.set("n", "<leader>bl", ":blast<cr>", { desc = "Last Buffer" })
 
 -- Yazi <cmd>
 vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
