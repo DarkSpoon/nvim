@@ -25,11 +25,11 @@ map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
--- lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- /Snagged from LazyVim config --
 
@@ -55,11 +55,6 @@ vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current 
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
-
--- Fyler keymaps
--- vim.keymap.set('n', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
--- vim.keymap.set('v', '<F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
--- vim.keymap.set('n', '<leader><F6>', ':Fyler<CR>', { desc = 'Launch Fyler' })
 
 -- Floaterm keymaps
 vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
@@ -90,15 +85,27 @@ vim.keymap.set('v', 'x', '"_x', { desc = 'Delete character forever' })
 -- vim.keymap.set('v', 'x', 'd', { desc = 'Cut text' })
 -- vim.keymap.set('n', 'xx', 'd', { desc = 'Cut text' })
 -- vim.keymap.set('v', 'xx', 'dd', { desc = 'Cut text' })
-vim.keymap.set('n', '<C-x>', 'd', { desc = 'Cut text' })
-vim.keymap.set('v', '<C-x>', 'd', { desc = 'Cut text' })
-vim.keymap.set('n', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
-vim.keymap.set('v', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
+vim.keymap.set({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
+-- vim.keymap.set('v', '<C-x>', 'd', { desc = 'Cut text' })
+vim.keymap.set({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
+-- vim.keymap.set('v', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 
 -- Go keybinds
-vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
-vim.keymap.set('n', '<Leader>gc', ':lua require(\'go.comment\').gen()<CR>', { desc = 'Generate Go Comment' })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "go",
+    -- group = augroup("go"),
+    callback = function()
+        vim.keymap.set('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
+    end
+})
 
+-- Powershell keybinds
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "ps1",
+    callback = function()
+        vim.keymap.set({ 'n','i' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
+    end
+})
 -- Search
 vim.keymap.set('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
 vim.keymap.set('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
@@ -128,11 +135,13 @@ vim.keymap.set('n','<Leader>ni', "", { desc = "Insert wiki page" } )
 vim.keymap.set('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
+-- local TelescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "Delete current buffer" } )
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
 vim.keymap.set("n", "<leader>bf", ":bfirst<cr>", { desc = "First Buffer" })
 vim.keymap.set("n", "<leader>bl", ":blast<cr>", { desc = "Last Buffer" })
+-- vim.keymap.set("n", "<S-j>", TelescopeBuiltin.buffers, { desc = 'Search existing Buffers' })
 
 -- Yazi <cmd>
 vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
