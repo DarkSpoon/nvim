@@ -90,6 +90,7 @@ return {
           vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Search existing Buffers' })
           vim.keymap.set('n', '<leader>bs', builtin.buffers, { desc = 'Search existing Buffers' })
           vim.keymap.set('n', '<S-j>', builtin.buffers, { desc = 'Search existing Buffers' })
+          vim.keymap.set('n', '<leader>uc', builtin.colorscheme, { desc = 'Search existing Colorschemes' })
 
           -- Slightly advanced example of overriding default behavior and theme
           vim.keymap.set('n', '<leader>/', function()

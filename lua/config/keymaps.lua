@@ -152,6 +152,9 @@ vim.keymap.set('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 -- LSP
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
 
+-- Colorscheme switch, now uses '<leader>uc' via telescope to provide a list
+-- vim.keymap.set({'n','i','v'}, '<leader>uc', ':colorscheme catppuccin-macchiato<cr>', { desc = 'Set colorscheme to Catppucinn'})
+-- vim.keymap.set({'n','i','v'}, '<leader>ug', ':colorscheme gruvbox<cr>', { desc = 'Set colorscheme to Gruvbox'})
 -- Telescope
 -- local TelescopeBuiltin = require('telescope.builtin')
 -- vim.keymap.set('n', '<leader>sg', TelescopeBuiltin.live_grep, { desc = 'Search Files with Grep' })
