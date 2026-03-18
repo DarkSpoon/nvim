@@ -103,7 +103,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "ps1",
     callback = function()
-        vim.keymap.set({ 'n','i' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
+        vim.keymap.set({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
     end
 })
 -- Search
@@ -135,12 +135,13 @@ vim.keymap.set('n','<Leader>ni', "", { desc = "Insert wiki page" } )
 vim.keymap.set('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
--- local TelescopeBuiltin = require('telescope.builtin')
-vim.keymap.set('n','<Leader>bd', ":bd<CR>", { desc = "Delete current buffer" } )
+vim.keymap.set('n','<Leader>bd', ':bd<cr>', { desc = 'Delete current buffer' } )
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
-vim.keymap.set("n", "<leader>bf", ":bfirst<cr>", { desc = "First Buffer" })
-vim.keymap.set("n", "<leader>bl", ":blast<cr>", { desc = "Last Buffer" })
+vim.keymap.set("n", '<leader>bf', ':bfirst<cr>', { desc = 'First Buffer' })
+vim.keymap.set("n", '<leader>bl', ':blast<cr>', { desc = "Last Buffer" })
+vim.keymap.set('n', '<leader>bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
+-- local TelescopeBuiltin = require('telescope.builtin')
 -- vim.keymap.set("n", "<S-j>", TelescopeBuiltin.buffers, { desc = 'Search existing Buffers' })
 
 -- Yazi <cmd>
@@ -152,9 +153,11 @@ vim.keymap.set('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 -- LSP
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
 
+-- Window stuff
 -- Colorscheme switch, now uses '<leader>uc' via telescope to provide a list
 -- vim.keymap.set({'n','i','v'}, '<leader>uc', ':colorscheme catppuccin-macchiato<cr>', { desc = 'Set colorscheme to Catppucinn'})
 -- vim.keymap.set({'n','i','v'}, '<leader>ug', ':colorscheme gruvbox<cr>', { desc = 'Set colorscheme to Gruvbox'})
+
 -- Telescope
 -- local TelescopeBuiltin = require('telescope.builtin')
 -- vim.keymap.set('n', '<leader>sg', TelescopeBuiltin.live_grep, { desc = 'Search Files with Grep' })
