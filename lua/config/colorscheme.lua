@@ -1,3 +1,3 @@
-vim.cmd.colorscheme('catppuccin-macchiato')
--- vim.o.background = "dark"
--- vim.cmd.colorscheme('gruvbox')
+vim.o.background = "dark"
+vim.cmd.colorscheme('gruvbox')
+-- vim.cmd.colorscheme('catppuccin-macchiato')

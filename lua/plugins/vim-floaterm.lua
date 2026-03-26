@@ -3,8 +3,12 @@ return {
     event = 'VeryLazy',
     init = function()
         -- Use Catppuccin Macchiatto Crust for background color
-        -- vim.cmd.hi('Floaterm guibg=#181926 guifg=gray') 
+        -- vim.cmd.hi('Floaterm guibg=#181926 guifg=gray')
+
+        -- Use Catppuccin Macchiatto Surface 0 for background color
+        vim.cmd.hi('Floaterm guibg=#363a4f')
+
         -- Use GruvBox Dark for background color
-        vim.cmd.hi('Floaterm guibg=#282828 guifg=gray')
+        -- vim.cmd.hi('Floaterm guibg=#282828 guifg=gray')
         end,
     }
