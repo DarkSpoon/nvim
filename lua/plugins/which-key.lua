@@ -11,7 +11,7 @@ return{
                 { "<leader>c", group = "code" },
                 { "<leader>d", group = "debug" },
                 { "<leader>dp", group = "profiler" },
-                { "<leader>f", group = "file/find" },
+                { "<leader>f", group = "file" },
                 -- { "<leader>g", group = "go" },
                 { "<leader>gh", group = "hunks" },
                 { "<leader>m", group = "move" },

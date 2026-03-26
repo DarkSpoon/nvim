@@ -33,6 +33,9 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- /Snagged from LazyVim config --
 
+function Print()
+
+end
 -- Files
 map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
@@ -107,7 +110,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 -- Search
-vim.keymap.set('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
+-- vim.keymap.set('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
 vim.keymap.set('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 vim.keymap.set('n', '<Leader>sl', function()
     local match = vim.fn.input("Find: ")
@@ -141,8 +144,12 @@ vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' }
 vim.keymap.set("n", '<leader>bf', ':bfirst<cr>', { desc = 'First Buffer' })
 vim.keymap.set("n", '<leader>bl', ':blast<cr>', { desc = "Last Buffer" })
 vim.keymap.set('n', '<leader>bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
--- local TelescopeBuiltin = require('telescope.builtin')
--- vim.keymap.set("n", "<S-j>", TelescopeBuiltin.buffers, { desc = 'Search existing Buffers' })
+vim.keymap.set('n','bd', ':bd<cr>', { desc = 'Delete current buffer' } )
+vim.keymap.set('n', 'bn', ':bnext<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', 'bp', ':bprevious<cr>', { desc = 'Previous buffer' })
+vim.keymap.set("n", 'bf', ':bfirst<cr>', { desc = 'First Buffer' })
+vim.keymap.set("n", 'bl', ':blast<cr>', { desc = "Last Buffer" })
+vim.keymap.set('n', 'bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
 
 -- Yazi <cmd>
 vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
