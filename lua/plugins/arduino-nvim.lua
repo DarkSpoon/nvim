@@ -21,3 +21,10 @@ return {
 --   port = "COM5",
 --   baudrate = "9600",
 -- }
+--
+-- HiLetgo ESP-32S/ESP-32D
+-- return {
+--   board = "esp32:esp32:esp32da",
+--   port = "COM6",
+--   baudrate = "9600",
+-- }
