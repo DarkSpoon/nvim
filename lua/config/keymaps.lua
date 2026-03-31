@@ -138,6 +138,7 @@ vim.keymap.set('n','<Leader>ni', "", { desc = "Insert wiki page" } )
 vim.keymap.set('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
+-- bs set for buffer search in Telescope config
 vim.keymap.set('n','<Leader>bd', ':bd<cr>', { desc = 'Delete current buffer' } )
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })

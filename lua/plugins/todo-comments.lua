@@ -1,10 +1,10 @@
-return {
-    "folke/todo-comments.nvim",
-    event = 'VimEnter',
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
+vim.pack.add({
+    "https://github.com/folke/todo-comments.nvim",
+    "https://github.com/nvim-lua/plenary.nvim"
+})
 
-        signs = true, -- show icons in the signs column
+require('todo-comments').setup{
+    signs = true, -- show icons in the signs column
         sign_priority = 8, -- sign priority
         -- keywords recognized as todo comments
         keywords = {
@@ -75,5 +75,4 @@ return {
             -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
         },
 
-    }
 }

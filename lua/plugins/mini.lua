@@ -1,5 +1,1 @@
-return {
-    'nvim-mini/mini.nvim',
-    version = false,
-    event = 'VeryLazy',
-}
+vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })

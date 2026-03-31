@@ -1,14 +1,9 @@
-return {
-    'voldikss/vim-floaterm',
-    event = 'VeryLazy',
-    init = function()
-        -- Use Catppuccin Macchiatto Crust for background color
-        -- vim.cmd.hi('Floaterm guibg=#181926 guifg=gray')
+vim.pack.add{( "https://github.com/voldikss/vim-floaterm" )}
+-- Catppuccin Macchiatto Crust
+-- vim.cmd.hi('Floaterm guibg=#181926')
 
-        -- Use Catppuccin Macchiatto Surface 0 for background color
-        vim.cmd.hi('Floaterm guibg=#363a4f')
+-- Catppuccin Macchiatto Surface 0
+vim.cmd.hi('Floaterm guibg=#363a4f')
 
-        -- Use GruvBox Dark for background color
-        -- vim.cmd.hi('Floaterm guibg=#282828 guifg=gray')
-        end,
-    }
+-- Gruvbox Dark
+-- vim.cmd.hi('Floaterm guibg=#282828')

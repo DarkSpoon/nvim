@@ -1,15 +1,6 @@
-return {
-    'catppuccin/nvim',
-    -- lazy = false,
-    lazy = true,
-    name = 'catppuccin',
-    priority = 1000,
-    -- init = function()
-    opts = {
+vim.pack.add({ "https://github.com/catppuccin/nvim" })
 
-    },
-    auto_integrations = true,
-        -- You can configure highlights by doing something like:
-        -- vim.cmd.hi('Comment gui=none')
-    -- end,
-}
+local Catppuccin = require("catppuccin")
+Catppuccin.setup({
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+})
