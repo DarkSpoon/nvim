@@ -15,7 +15,8 @@ require('mason-tool-installer').setup({
         "stylua",
         "powershell_es",
         "pylsp",
-        "gopls"
+        "gopls",
+        "arduino_language_server"
     }
 })
 

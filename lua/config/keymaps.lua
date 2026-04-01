@@ -33,72 +33,43 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- /Snagged from LazyVim config --
 
-function Print()
+-- function Print()
 
-end
+-- end
 -- Files
 map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
 
---Move Lines This is now handled by mini.lua
--- vim.keymap.set('n', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('v', '<leader>md' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('n', '<C-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('v', '<C-j>' , ':move +1<cr>==', { desc = 'Move Line Down' })
--- vim.keymap.set('i', '<C-j>' , '<Esc>:move +1<cr>==gi', { desc = 'Move Line Down' })
---
--- vim.keymap.set('n', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('v', '<leader>mu', ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('n', '<C-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('v', '<C-k>' , ':move -2<cr>==', { desc = 'Move Line Up' })
--- vim.keymap.set('i', '<C-k>' , '<Esc>:move -2<cr>==gi', { desc = 'Move Line Up' })
-
 -- Quickly source current file / execute Lua code
-vim.keymap.set('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
+map('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
+map('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
 
 -- Floaterm keymaps
-vim.keymap.set('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
-vim.keymap.set('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
-
--- Tab keymaps
--- vim.keymap.set('n', '<leader><Tab><Tab>', ':tabnext<CR>', { desc = 'Next tab' })
--- vim.keymap.set('n', '<leader><Tab>p', ':tabprevious<CR>', { desc = 'Previous tab' })
--- vim.keymap.set('n', '<leader><Tab>n', ':tabnew<CR>', { desc = 'New tab' })
--- vim.keymap.set('n', '<leader><Tab>c', ':tabclose<CR>', { desc = 'Close tab' })
--- vim.keymap.set('n', '<leader><Tab>o', ':tabonly<CR>', { desc = 'Close other tabs' })
--- vim.keymap.set('n', '<leader><Tab>-', ':tabmove -<CR>', { desc = 'Move tab left' })
--- vim.keymap.set('n', '<leader><Tab>+', ':tabmove +<CR>', { desc = 'Move tab right' })
--- vim.keymap.set('n', '<leader><Tab>f', ':tabfind ', { desc = 'Find tab' })
+map('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
+map('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 
 -- Black hole delete
-vim.keymap.set('n', 'd', '"_d', { desc = 'Delete text forever' })
-vim.keymap.set('v', 'd', '"_d', { desc = 'Delete text forever' })
-vim.keymap.set('n', 'dd', '"_dd', { desc = 'Delete line forever' })
-vim.keymap.set('v', 'dd', '"_dd', { desc = 'Delete line forever' })
-vim.keymap.set('n', '<Del>', '"_x', { desc = 'Delete character forever' })
-vim.keymap.set('v', '<Del>', '"_x', { desc = 'Delete character forever' })
-vim.keymap.set('n', 'x', '"_x', { desc = 'Delete character forever' })
-vim.keymap.set('v', 'x', '"_x', { desc = 'Delete character forever' })
+map('n', 'd', '"_d', { desc = 'Delete text forever' })
+map('v', 'd', '"_d', { desc = 'Delete text forever' })
+map('n', 'dd', '"_dd', { desc = 'Delete line forever' })
+map('v', 'dd', '"_dd', { desc = 'Delete line forever' })
+map('n', '<Del>', '"_x', { desc = 'Delete character forever' })
+map('v', '<Del>', '"_x', { desc = 'Delete character forever' })
+map('n', 'x', '"_x', { desc = 'Delete character forever' })
+map('v', 'x', '"_x', { desc = 'Delete character forever' })
 
 -- Yank then Delete
--- vim.keymap.set('n', 'x', 'd', { desc = 'Cut text'})
--- vim.keymap.set('v', 'x', 'd', { desc = 'Cut text' })
--- vim.keymap.set('n', 'xx', 'd', { desc = 'Cut text' })
--- vim.keymap.set('v', 'xx', 'dd', { desc = 'Cut text' })
-vim.keymap.set({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
--- vim.keymap.set('v', '<C-x>', 'd', { desc = 'Cut text' })
-vim.keymap.set({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
--- vim.keymap.set('v', '<C-x><C-x>', 'dd', { desc = 'Cut text' })
+map({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
+map({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 
 -- Go keybinds
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "go",
     -- group = augroup("go"),
     callback = function()
-        vim.keymap.set('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
+        map('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
     end
 })
 
@@ -106,66 +77,60 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "ps1",
     callback = function()
-        vim.keymap.set({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
+        map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
     end
 })
 -- Search
--- vim.keymap.set('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
-vim.keymap.set('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
-vim.keymap.set('n', '<Leader>sl', function()
+-- map('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
+map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
+map('n', '<Leader>sl', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Search and Replace on current line"})
-vim.keymap.set('n', '<Leader>sa', function()
+map('n', '<Leader>sa', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Search and Replace all instances"})
-vim.keymap.set('n', '<Leader>st', ':set hlsearch!<cr><C-l>', {desc ="Toggle Search hilighting"})
+-- map('n', '<Leader>st', ':set hlsearch!<cr><C-l>', {desc ="Toggle Search hilighting"})
 
 -- Neowiki note taking
-vim.keymap.set('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
-vim.keymap.set('n','<Leader>no', "<cmd>lua require('neowiki').open_wiki()<cr>", { desc = "Open wiki index" } )
-vim.keymap.set('n','<Leader>nO', "<cmd>lua require('neowiki').open_wiki_floating()<cr>", { desc = "Open Wiki in floating window" } )
-vim.keymap.set('n','<Leader>nT', "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>", { desc = "Open Wiki in Tab" } )
-vim.keymap.set('n','<Leader>nt', "", { desc = "Toggle task" } )
-vim.keymap.set('n','<Leader>nr', "", { desc = "Rename wiki page" } )
-vim.keymap.set('n','<Leader>nd', "", { desc = "Delete wiki page" } )
-vim.keymap.set('n','<Leader>ni', "", { desc = "Insert wiki page" } )
-vim.keymap.set('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
+map('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
+map('n','<Leader>no', "<cmd>lua require('neowiki').open_wiki()<cr>", { desc = "Open wiki index" } )
+map('n','<Leader>nO', "<cmd>lua require('neowiki').open_wiki_floating()<cr>", { desc = "Open Wiki in floating window" } )
+map('n','<Leader>nT', "<cmd>lua require('neowiki').open_wiki_new_tab()<cr>", { desc = "Open Wiki in Tab" } )
+map('n','<Leader>nt', "", { desc = "Toggle task" } )
+map('n','<Leader>nr', "", { desc = "Rename wiki page" } )
+map('n','<Leader>nd', "", { desc = "Delete wiki page" } )
+map('n','<Leader>ni', "", { desc = "Insert wiki page" } )
+map('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
 -- bs set for buffer search in Telescope config
-vim.keymap.set('n','<Leader>bd', ':bd<cr>', { desc = 'Delete current buffer' } )
-vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
-vim.keymap.set("n", '<leader>bf', ':bfirst<cr>', { desc = 'First Buffer' })
-vim.keymap.set("n", '<leader>bl', ':blast<cr>', { desc = "Last Buffer" })
-vim.keymap.set('n', '<leader>bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
-vim.keymap.set('n','bd', ':bd<cr>', { desc = 'Delete current buffer' } )
-vim.keymap.set('n', 'bn', ':bnext<cr>', { desc = 'Next buffer' })
-vim.keymap.set('n', 'bp', ':bprevious<cr>', { desc = 'Previous buffer' })
-vim.keymap.set("n", 'bf', ':bfirst<cr>', { desc = 'First Buffer' })
-vim.keymap.set("n", 'bl', ':blast<cr>', { desc = "Last Buffer" })
-vim.keymap.set('n', 'bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
+map('n','<Leader>bd', ':bd<cr>', { desc = 'Delete current buffer' } )
+map('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
+map('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
+map("n", '<leader>bf', ':bfirst<cr>', { desc = 'First Buffer' })
+map("n", '<leader>bl', ':blast<cr>', { desc = "Last Buffer" })
+map('n', '<leader>bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
+map('n','bd', ':bd<cr>', { desc = 'Delete current buffer' } )
+map('n', 'bn', ':bnext<cr>', { desc = 'Next buffer' })
+map('n', 'bp', ':bprevious<cr>', { desc = 'Previous buffer' })
+map("n", 'bf', ':bfirst<cr>', { desc = 'First Buffer' })
+map("n", 'bl', ':blast<cr>', { desc = "Last Buffer" })
+map('n', 'bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
 
 -- Yazi <cmd>
-vim.keymap.set('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
-vim.keymap.set('v', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
-vim.keymap.set('n', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
-vim.keymap.set('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+map('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+map('v', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+map('n', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+map('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 
 -- LSP
-vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
+map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
 
--- Window stuff
--- Colorscheme switch, now uses '<leader>uc' via telescope to provide a list
--- vim.keymap.set({'n','i','v'}, '<leader>uc', ':colorscheme catppuccin-macchiato<cr>', { desc = 'Set colorscheme to Catppucinn'})
--- vim.keymap.set({'n','i','v'}, '<leader>ug', ':colorscheme gruvbox<cr>', { desc = 'Set colorscheme to Gruvbox'})
-
--- Telescope
--- local TelescopeBuiltin = require('telescope.builtin')
--- vim.keymap.set('n', '<leader>sg', TelescopeBuiltin.live_grep, { desc = 'Search Files with Grep' })
+-- Packadd Update
+map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' })
