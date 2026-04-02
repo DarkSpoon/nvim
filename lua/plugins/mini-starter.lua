@@ -1,11 +1,11 @@
 vim.pack.add({
     "https://github.com/nvim-mini/mini.starter",
-    -- "https://github.com/nvim-telescope/telescope.nvim"
 });
 
 local starter = require("mini.starter")
 local builtin = require("telescope.builtin")
 local pad = string.rep(" ", 22)
+local version = vim.version().build
 
 local new_section = function(name, action, section)
     return { name = name, action = action, section = pad .. section }
@@ -34,7 +34,7 @@ require('mini.starter').setup({
     "       ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║       ",
     "       ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║       ",
     "       ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝       ",
-    "                                                  " .. vim.version().build .. "        "
+    "                                                  " .. version .. "        "
     },  "\n"),
     evaluate_single = true,
     items = {
