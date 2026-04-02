@@ -2,7 +2,7 @@
 
 -- undotree
 vim.cmd("packadd nvim.undotree")
-vim.keymap.set("n", "<leader>u", function()
+vim.keymap.set("n", "<S-u>", function()
 	require("undotree").open({
 		command = math.floor(vim.api.nvim_win_get_width(0) / 3) .. "vnew",
 	})
