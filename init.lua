@@ -3,6 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require("plugins.catppuccin")
 require("plugins.gruvbox")
+require("plugins.fidget")
 require("config.colorscheme")
 
 require("config.globals")
