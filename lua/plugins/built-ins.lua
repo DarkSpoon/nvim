@@ -11,3 +11,6 @@ end, { desc = "[U]ndotree toggle" })
 
 -- clear search highlight on insert
 vim.cmd("packadd nohlsearch")
+
+-- DiffTool
+vim.cmd("packadd nvim.difftool")
