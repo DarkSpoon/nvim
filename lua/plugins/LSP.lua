@@ -1,12 +1,12 @@
-vim.pack.add({
-    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/mason-org/mason.nvim",
-    "https://github.com/mason-org/mason-lspconfig.nvim",
-    "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-    "https://github.com/edte/blink-go-import.nvim",
-    "https://github.com/rafamadriz/friendly-snippets",
-   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.x"), },
-})
+-- vim.pack.add({
+--     "https://github.com/neovim/nvim-lspconfig",
+--     "https://github.com/mason-org/mason.nvim",
+--     "https://github.com/mason-org/mason-lspconfig.nvim",
+--     "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+--     "https://github.com/edte/blink-go-import.nvim",
+--     "https://github.com/rafamadriz/friendly-snippets",
+--    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.x"), },
+-- })
 require('mason').setup()
 require('mason-lspconfig').setup()
 require('mason-tool-installer').setup({

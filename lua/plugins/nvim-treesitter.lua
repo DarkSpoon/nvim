@@ -3,14 +3,13 @@
 -- Extract to a directory ie: C:\ProgramData\mingw64\
 -- Add System Environment variable "CC" with path to mingw64\bin\x86_64-w64-mingw32-gcc.exe 
 
-vim.pack.add({
-    {
-        src = "https://github.com/nvim-treesitter/nvim-treesitter",
-        version = "main",
-        build = ':TSUpdate'
-    }
-})
---
+-- vim.pack.add({
+--     {
+--         src = "https://github.com/nvim-treesitter/nvim-treesitter",
+--         version = "main",
+--         build = ':TSUpdate'
+--     }
+-- })
 
 require("nvim-treesitter").install({
     "arduino",

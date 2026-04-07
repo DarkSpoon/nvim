@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/catppuccin/nvim" })
+-- vim.pack.add({ "https://github.com/catppuccin/nvim" })
 
 local Catppuccin = require("catppuccin")
 Catppuccin.setup({

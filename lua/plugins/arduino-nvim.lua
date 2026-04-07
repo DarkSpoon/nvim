@@ -14,7 +14,8 @@
 --     })
 --   end,
 -- }
-vim.pack.add({ "https://github.com/yuukiflow/Arduino-Nvim" })
+
+-- vim.pack.add({ "https://github.com/yuukiflow/Arduino-Nvim" })
 
 -- require("Arduino-Nvim").setup({
     vim.api.nvim_create_autocmd("FileType", {

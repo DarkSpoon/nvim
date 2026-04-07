@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/sphamba/smear-cursor.nvim" })
+-- vim.pack.add({ "https://github.com/sphamba/smear-cursor.nvim" })
 
 require('smear_cursor').setup{
     -- Faster smear                       -- Default  Range 
@@ -9,7 +9,7 @@ require('smear_cursor').setup{
     -- damping = 0.95,                       -- 0.85     [0, 1]
     -- damping_insert_mode = 0.95,           -- 0.9      [0, 1]
     -- distance_stop_animating = 0.5,        -- 0.1      > 0
-    
+
     -- Smooth cursor without smear
     --     stiffness = 0.5,
     --     trailing_stiffness = 0.5,

@@ -10,7 +10,7 @@ else
     personalPath = "/home/jpayne/Documents/wiki/personal"
 end
 
-vim.pack.add({"https://github.com/echaya/neowiki.nvim"})
+-- vim.pack.add({"https://github.com/echaya/neowiki.nvim"})
 
 require('neowiki').setup{
     wiki_dirs = {
