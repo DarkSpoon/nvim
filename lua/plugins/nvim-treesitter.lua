@@ -17,7 +17,7 @@ require("nvim-treesitter").install({
     "gitcommit",
     "gitignore",
     "ini",
-    "json", "jsonc",
+    "json",
     "lua",
     "make",
     "markdown", "markdown_inline",
