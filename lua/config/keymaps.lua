@@ -33,9 +33,6 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- /Snagged from LazyVim config --
 
--- function Print()
-
--- end
 -- Files
 map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
@@ -80,8 +77,8 @@ vim.api.nvim_create_autocmd("FileType", {
         map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
     end
 })
+
 -- Search
--- map('n', '<C-l>', ':noh<CR>', {desc = "Clear search results"})
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 map('n', '<Leader>sl', function()
     local match = vim.fn.input("Find: ")
@@ -95,7 +92,6 @@ map('n', '<Leader>sa', function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Search and Replace all instances"})
--- map('n', '<Leader>st', ':set hlsearch!<cr><C-l>', {desc ="Toggle Search hilighting"})
 
 -- Neowiki note taking
 map('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
