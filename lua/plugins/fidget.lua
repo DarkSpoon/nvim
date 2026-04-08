@@ -14,7 +14,8 @@ require("fidget").setup {
       max_height = 0,             -- Maximum height of the notification window
       x_padding = 1,              -- Padding from right edge of window boundary
       y_padding = 0,              -- Padding from bottom edge of window boundary
-      align = "bottom",           -- How to align the notification window
+      -- align = "bottom",           -- How to align the notification window
+      align = "top",
       relative = "editor",        -- What the notification window position is relative to
       tabstop = 4,                -- Width of each tab character in the notification window
       avoid = {}                  -- Filetypes the notification window should avoid
