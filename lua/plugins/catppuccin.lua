@@ -1,4 +1,3 @@
-local Catppuccin = require("catppuccin")
-Catppuccin.setup({
+require("catppuccin").setup({
     flavour = "macchiato", -- latte, frappe, macchiato, mocha
 })
