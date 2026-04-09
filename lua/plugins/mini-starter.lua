@@ -1,7 +1,3 @@
--- vim.pack.add({
---     "https://github.com/nvim-mini/mini.starter",
--- });
-
 local starter = require("mini.starter")
 local builtin = require("telescope.builtin")
 local pad = string.rep(" ", 22)

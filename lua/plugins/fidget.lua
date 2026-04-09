@@ -1,7 +1,5 @@
--- vim.pack.add({ "https://github.com/j-hui/fidget.nvim" })
-
 require("fidget").setup {
-  -- options
+-- options
   notification = {
       override_vim_notify = true,
   },

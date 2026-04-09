@@ -10,8 +10,6 @@ else
     personalPath = "/home/jpayne/Documents/wiki/personal"
 end
 
--- vim.pack.add({"https://github.com/echaya/neowiki.nvim"})
-
 require('neowiki').setup{
     wiki_dirs = {
         -- neowiki.nvim supports both absolute and tilde-expanded paths

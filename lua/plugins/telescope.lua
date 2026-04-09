@@ -1,10 +1,3 @@
--- vim.pack.add({
---   "https://github.com/nvim-telescope/telescope.nvim",
---   "https://github.com/nvim-lua/plenary.nvim",
---   "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
---   "https://github.com/nvim-telescope/telescope-ui-select.nvim",
---   "https://github.com/nvim-tree/nvim-web-devicons"
--- })
   -- [[ Configure Telescope ]]
   -- See `:help telescope` and `:help telescope.setup()`
   local builtin = require 'telescope.builtin'
