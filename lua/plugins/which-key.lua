@@ -1,3 +1,4 @@
+
 local wk = require("which-key")
 wk.setup({
         preset = "helix",
@@ -6,7 +7,6 @@ wk.setup({
             {
                 mode = { "n", "v" },
                 { "<leader><tab>", group = "tabs" },
-                { "<leader>a", group = "arduino" },
                 { "<leader>c", group = "code" },
                 { "<leader>d", group = "debug" },
                 { "<leader>dp", group = "profiler" },
@@ -42,4 +42,19 @@ wk.setup({
                 { "gx", desc = "Open with system app" },
             },
         },
+})
+
+
+--arduino bind descriptions
+wk.add({
+    { "<leader>a", group = "arduino" },
+    { "<Leader>au", desc = 'Compile and Upload code' },
+    { "<Leader>as", desc = 'Show board and port status' },
+    { "<Leader>ag", desc = 'Set board and port' },
+    { "<Leader>am", desc = 'Serial monitor' },
+    { "<Leader>al", desc = 'Library manager' },
+    { "<Leader>ab", desc = 'Select board' },
+    { "<Leader>ap", desc = 'Select port' },
+    { "<Leader>ar", desc = 'Upload with reset' },
+    { "<Leader>ac", desc = 'Compile/Check code' },
 })
