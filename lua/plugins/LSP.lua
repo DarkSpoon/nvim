@@ -7,7 +7,8 @@ require('mason-tool-installer').setup({
         "powershell_es",
         "pylsp",
         "gopls",
-        "arduino_language_server"
+        "arduino_language_server",
+        "marksman",
     }
 })
 
