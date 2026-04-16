@@ -36,6 +36,7 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 -- Files
 map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
+map({ "i", "x", "n", "s"},  "<leader>fd", ":cd %:h<cr><esc>", { desc = "Change CWD to this file" })
 
 -- Quickly source current file / execute Lua code
 map('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
@@ -130,3 +131,7 @@ map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
 
 -- Packadd Update
 map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' })
+
+-- MiniStarter
+map('n', '<leader>fm', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
+
