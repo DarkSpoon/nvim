@@ -2,6 +2,7 @@
   -- See `:help telescope` and `:help telescope.setup()`
   local builtin = require 'telescope.builtin'
   local actions = require 'telescope.actions'
+
   require('telescope').setup {
     -- You can put your default mappings / updates / etc. in here
     --  All the info you're looking for is in `:help telescope.setup()`
@@ -42,6 +43,7 @@
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
+      -- vim.keymap.set('n', '/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
@@ -61,7 +63,6 @@
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files {
-            -- cwd = vim.fn.stdpath 'config'
-            cwd = os.getenv("NVIMCONFIG")
+            cwd = vim.fn.stdpath 'config'
         }
       end, { desc = 'Search Neovim files' })
