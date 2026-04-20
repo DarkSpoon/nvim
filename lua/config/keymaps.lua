@@ -28,15 +28,11 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
--- lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-
 -- /Snagged from LazyVim config --
 
 -- Files
 map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
-map({ "i", "x", "n", "s"},  "<leader>fd", ":cd %:h<cr><esc>", { desc = "Change CWD to this file" })
 
 -- Quickly source current file / execute Lua code
 map('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
