@@ -129,5 +129,5 @@ map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
 map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' })
 
 -- MiniStarter
-map('n', '<leader>fm', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
+map('n', '<leader>um', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
 

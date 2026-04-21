@@ -15,7 +15,7 @@ wk.setup({
                 { "<leader>gh", group = "hunks" },
                 { "<leader>m", group = "move" },
                 { "<leader>s", group = "search" },
-                { "<leader>u", group = "ui" },
+                { "<leader>u", group = "system" },
                 { "<leader>x", group = "diagnostics/quickfix" },
                 -- { "<leader>y", group = "yazi" },
                 { "[", group = "prev" },
