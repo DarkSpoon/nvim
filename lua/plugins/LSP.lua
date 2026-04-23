@@ -1,5 +1,8 @@
 require('mason').setup()
-require('mason-lspconfig').setup()
+-- require('nvim-lspconfig').setup()
+require('mason-lspconfig').setup({
+    automatic_enable = true,
+})
 require('mason-tool-installer').setup({
     ensure_installed = {
         "lua_ls",
@@ -36,3 +39,26 @@ require("blink.cmp").setup({
 vim.lsp.config["*"] = {
    capabilities = require("blink.cmp").get_lsp_capabilities(),
 }
+
+vim.diagnostic.config({
+  severity_sort = true,
+  update_in_insert = false,
+  float = {
+    border = 'rounded',
+    source = 'if_many',
+  },
+  underline = true,
+  virtual_text = {
+    spacing = 2,
+    source = 'if_many',
+    prefix = '●',
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'E',
+      [vim.diagnostic.severity.WARN] = 'W',
+      [vim.diagnostic.severity.INFO] = 'I',
+      [vim.diagnostic.severity.HINT] = 'H',
+    },
+  },
+})
