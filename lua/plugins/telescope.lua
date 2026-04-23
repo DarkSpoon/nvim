@@ -62,7 +62,14 @@
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files {
-            cwd = vim.fn.stdpath 'config'
-        }
+          require("yazi").yazi(nil, vim.fn.stdpath 'config')
+          -- If and only if I opened anything from my U:\PowerShell folder the below doesn't work.
+          -- It can't seem to change the drive letter back. The rest of the path is correct though.
+          -- ie C:\Users\me\AppData\Local\nvim\init.lua gets set as U:\Users\me\AppData\Local\nvim\init.lua
+          -- cd reports back U:\PowerShell\ on any and all buffers after opening anything from that folder. 
+          -- Doesn't happen on any other files or folders on that drive
+          -- vim.fn.stdpath 'config' gives correct config directory with correct drive letter
+          -- builtin.find_files {
+              -- cwd = vim.fn.stdpath 'config'
+          -- }
       end, { desc = 'Search Neovim files' })
