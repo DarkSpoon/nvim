@@ -31,11 +31,11 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 -- /Snagged from LazyVim config --
 
 -- Files
-map({ "i", "x", "n", "s"},  "<leader>fs", ":w<cr><esc>", { desc = "Save File" })
-map({ "i", "x", "n", "s"},  "<leader>fc", ":q<cr><esc>", { desc = "Close File" })
+map({ "i", "x", "n", "s"},  "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save File" })
+map({ "i", "x", "n", "s"},  "<leader>fc", "<cmd>q<cr><esc>", { desc = "Close File" })
 
 -- Quickly source current file / execute Lua code
-map('n', '<leader>xx', '<Cmd>source %<CR>', { desc = 'Source current file' })
+map('n', '<leader>xx', '<cmd>source %<CR>', { desc = 'Source current file' })
 
 -- Diagnostic keymaps
 map('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
@@ -131,3 +131,26 @@ map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' }
 -- MiniStarter
 map('n', '<leader>um', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
 
+-- Python 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        map("n", "<leader>pr", ':FloatermNew py %:p<cr>', {desc = 'Run Python Code'})
+    end
+})
+
+-- Arduino
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "arduino",
+    callback = function()
+        map("n", "<Leader>au", ":InoUpload<CR>", { desc = 'Compile and Upload code' })  -- Upload code
+        map("n", "<Leader>ac", ":InoCheck<CR>", { desc = 'Compile code' })   -- Compile/check code
+        map("n", "<Leader>as", ":InoStatus<CR>", { desc = 'Show board and port status' })  -- Show current board and port status
+        map("n", "<Leader>ag", ":InoGUI<CR>", { desc = 'Set board and port' })     -- Open GUI for setting board and port
+        map("n", "<Leader>am", ":InoMonitor<CR>", { desc = 'Serial monitor' })     -- Open Serial monitor with default port and baud rate
+        map("n", "<Leader>al", ":InoLib<CR>", { desc = 'Library manager' })
+        map("n", "<Leader>ab", ":InoSelectBoard<CR>", { desc = 'Select board' })     -- open board selection gui
+        map("n", "<Leader>ap", ":InoSelectPort<CR>", { desc = 'Select port' }) -- open port selection gui
+        map("n", "<Leader>ar", ":InoUploadReset<CR>", { desc = 'Upload with manual reset' }) -- Upload with manual reset for UNO R4 WiFi
+    end
+})
