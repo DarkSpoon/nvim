@@ -1,5 +1,4 @@
 require('mason').setup()
--- require('nvim-lspconfig').setup()
 require('mason-lspconfig').setup({
     automatic_enable = true,
 })
