@@ -15,7 +15,7 @@ wk.setup({
                 { "<leader>gh", group = "hunks" },
                 { "<leader>m", group = "move" },
                 { "<leader>s", group = "search" },
-                { "<leader>u", group = "system" },
+                { "<leader>u", group = "ui" },
                 { "<leader>x", group = "diagnostics/quickfix" },
                 -- { "<leader>y", group = "yazi" },
                 { "[", group = "prev" },
@@ -48,13 +48,9 @@ wk.setup({
 --arduino bind descriptions
 wk.add({
     { "<leader>a", group = "arduino" },
-    { "<Leader>au", desc = 'Compile and Upload code' },
-    { "<Leader>as", desc = 'Show board and port status' },
-    { "<Leader>ag", desc = 'Set board and port' },
-    { "<Leader>am", desc = 'Serial monitor' },
-    { "<Leader>al", desc = 'Library manager' },
-    { "<Leader>ab", desc = 'Select board' },
-    { "<Leader>ap", desc = 'Select port' },
-    { "<Leader>ar", desc = 'Upload with reset' },
-    { "<Leader>ac", desc = 'Compile/Check code' },
+})
+
+-- Python group
+wk.add({
+    { "<leader>p", group = "python" },
 })
