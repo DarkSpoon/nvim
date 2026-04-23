@@ -11,8 +11,8 @@ vim.pack.add({
     "https://github.com/ellisonleao/gruvbox.nvim",
 
     -- LSP
-    "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason-lspconfig.nvim",
     "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
     "https://github.com/edte/blink-go-import.nvim",
