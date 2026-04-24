@@ -61,13 +61,13 @@ map({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
 map({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 
 -- Go keybinds
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "go",
-    -- group = augroup("go"),
-    callback = function()
-        map('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
-    end
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "go",
+--     -- group = augroup("go"),
+--     callback = function()
+--         map('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
+--     end
+-- })
 
 -- Powershell keybinds
 -- vim.api.nvim_create_autocmd("FileType", {
@@ -134,12 +134,12 @@ map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' }
 map('n', '<leader>um', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
 
 -- Python 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    callback = function()
-        map("n", "<leader>pr", ':FloatermNew py %:p<cr>', {desc = 'Run Python Code'})
-    end
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "python",
+--     callback = function()
+--         map("n", "<leader>pr", ':FloatermNew py %:p<cr>', {desc = 'Run Python Code'})
+--     end
+-- })
 
 -- Arduino
 -- vim.api.nvim_create_autocmd("FileType", {
