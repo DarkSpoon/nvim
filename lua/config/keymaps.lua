@@ -60,23 +60,6 @@ map('v', 'x', '"_x', { desc = 'Delete character forever' })
 map({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
 map({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 
--- Go keybinds
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "go",
---     -- group = augroup("go"),
---     callback = function()
---         map('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
---     end
--- })
-
--- Powershell keybinds
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "ps1",
---     callback = function()
---         map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
---     end
--- })
-
 -- Search
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 map('n', '<Leader>sl', function()
@@ -133,6 +116,38 @@ map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' }
 -- MiniStarter
 map('n', '<leader>um', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
 
+-- Snacks
+-- Search
+map("n", "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find nvim Config File" })
+map('n', '<leader>sh', function() Snacks.picker.notifications() end, { desc = 'Search Notification History' })
+map('n', '<leader>sk', function() Snacks.picker.keymaps() end, { desc = 'Search Keymaps' })
+map('n', '<leader>sf', function() Snacks.picker.files() end, { desc = 'Search For File Names' })
+map('n', '<leader>ss', function() Snacks.picker.smart() end, { desc = 'Smart Search' })
+map('n', '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Search Current Word' })
+map('n', '<leader>sg', function() Snacks.picker.grep() end, { desc = 'Search Files with Grep' })
+map('n', '<leader>sd', function() Snacks.picker.diagnostics() end, { desc = 'Search Diagnostics' })
+map('n', '<leader>sR', function() Snacks.picker.resume() end, { desc = 'Search Resume' })
+map('n', '<leader>sp', function() Snacks.picker.projects() end, { desc = 'Search Projects' })
+map('n', '<leader>sr', function() Snacks.picker.recent() end, { desc = 'Search Recent Files' })
+map('n', '<leader>sb', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
+map('n', '<leader>sB', function() Snacks.picker.lines() end, { desc = 'Search Buffer Lines' })
+map('n', '<leader>bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
+map('n', 'bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
+map('n', '<leader>uc', function() Snacks.picker.colorschemes() end, { desc = 'Search existing Colorschemes' })
+-- map('n', '<S-j>', builtin.buffers, { desc = 'Search existing Buffers' })
+-- Git
+map('n', "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
+map('n', "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
+map('n', "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
+map('n', "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git Status" })
+map('n', "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash" })
+map('n', "<leader>gp", function() Snacks.picker.git_diff() end, { desc = "Git Diff Picker (Hunks)" })
+map('n', "<leader>gP", function() Snacks.picker.git_diff({ base = "origin" }) end, { desc = "Git Diff Picker(origin)" })
+map('n', "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
+map({ 'n', 'v' }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
+map('n', "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
+
+--File Specific stuff, now in ftplugin
 -- Python 
 -- vim.api.nvim_create_autocmd("FileType", {
 --     pattern = "python",
@@ -157,33 +172,20 @@ map('n', '<leader>um', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarte
 --     end
 -- })
 
--- Snacks
--- Search
-map("n", "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find nvim Config File" })
-map('n', '<leader>sh', function() Snacks.picker.notifications() end, { desc = 'Search Notification History' })
-map('n', '<leader>sk', function() Snacks.picker.keymaps() end, { desc = 'Search Keymaps' })
-map('n', '<leader>sf', function() Snacks.picker.files() end, { desc = 'Search For File Names' })
-map('n', '<leader>ss', function() Snacks.picker.smart() end, { desc = 'Smart Search' })
-map('n', '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Search Current Word' })
-map('n', '<leader>sg', function() Snacks.picker.grep() end, { desc = 'Search Files with Grep' })
-map('n', '<leader>sd', function() Snacks.picker.diagnostics() end, { desc = 'Search Diagnostics' })
-map('n', '<leader>sr', function() Snacks.picker.resume() end, { desc = 'Search Resume' })
-map('n', '<leader>sp', function() Snacks.picker.projects() end, { desc = 'Search Projects' })
-map('n', '<leader>s.', function() Snacks.picker.recent() end, { desc = 'Search Recent Files ("." for repeat)' })
-map('n', '<leader>sb', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
-map('n', '<leader>sB', function() Snacks.picker.lines() end, { desc = 'Search Buffer Lines' })
-map('n', '<leader>bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
-map('n', 'bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
--- map('n', '<S-j>', builtin.buffers, { desc = 'Search existing Buffers' })
-map('n', '<leader>uc', function() Snacks.picker.colorschemes() end, { desc = 'Search existing Colorschemes' })
--- Git
-map('n', "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
-map('n', "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
-map('n', "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
-map('n', "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git Status" })
-map('n', "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash" })
-map('n', "<leader>gp", function() Snacks.picker.git_diff() end, { desc = "Git Diff Picker (Hunks)" })
-map('n', "<leader>gP", function() Snacks.picker.git_diff({ base = "origin" }) end, { desc = "Git Diff Picker(origin)" })
-map('n', "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
-map({ 'n', 'v' }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
-map('n', "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
+-- Go keybinds
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "go",
+--     -- group = augroup("go"),
+--     callback = function()
+--         map('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
+--     end
+-- })
+
+-- Powershell keybinds
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "ps1",
+--     callback = function()
+--         map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
+--     end
+-- })
+
