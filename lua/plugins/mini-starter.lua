@@ -1,5 +1,5 @@
 local starter = require("mini.starter")
-local builtin = require("telescope.builtin")
+-- local builtin = require("telescope.builtin")
 local Snacks = require("snacks")
 local pad = string.rep(" ", 22)
 local version = vim.version().build

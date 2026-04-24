@@ -39,13 +39,13 @@ vim.pack.add({
         build = ':TSUpdate'
     },
 
-    -- Telescope
-    "https://github.com/nvim-telescope/telescope.nvim",
-    {
-        src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
-        build = 'make'
-    },
-    "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+    -- Telescope, no longer used? Snacks.picker
+    -- "https://github.com/nvim-telescope/telescope.nvim",
+    -- {
+    --     src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+    --     build = 'make'
+    -- },
+    -- "https://github.com/nvim-telescope/telescope-ui-select.nvim",
 
     "https://github.com/yuukiflow/Arduino-Nvim",
 
@@ -83,7 +83,7 @@ require("plugins.neowiki")
 require("plugins.nvim-autopairs")
 require("plugins.nvim-treesitter")
 require("plugins.smear-cursor")
-require("plugins.telescope")
+-- require("plugins.telescope")
 require("plugins.todo-comments")
 require("plugins.vim-floaterm")
 require("plugins.which-key")
