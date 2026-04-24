@@ -11,7 +11,7 @@ wk.setup({
                 { "<leader>d", group = "debug" },
                 { "<leader>dp", group = "profiler" },
                 { "<leader>f", group = "file" },
-                -- { "<leader>g", group = "go" },
+                { "<leader>g", group = "git" },
                 { "<leader>gh", group = "hunks" },
                 { "<leader>m", group = "move" },
                 { "<leader>s", group = "search" },

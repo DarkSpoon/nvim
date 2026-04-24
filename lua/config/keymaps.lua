@@ -1,5 +1,7 @@
--- Snagged from LazyVim config --
 local map = vim.keymap.set
+local Snacks = require("snacks")
+
+-- Snagged from LazyVim config --
 --Better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -68,12 +70,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Powershell keybinds
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "ps1",
-    callback = function()
-        map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
-    end
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "ps1",
+--     callback = function()
+--         map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
+--     end
+-- })
 
 -- Search
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
@@ -102,7 +104,7 @@ map('n','<Leader>ni', "", { desc = "Insert wiki page" } )
 map('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
--- bs set for buffer search in Telescope config
+-- bs set for buffer search in Snacks keymaps below, previously in Telescope config
 map('n','<Leader>bd', ':bd<cr>', { desc = 'Delete current buffer' } )
 map('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 map('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
@@ -154,3 +156,34 @@ vim.api.nvim_create_autocmd("FileType", {
 --         map("n", "<Leader>ar", ":InoUploadReset<CR>", { buffer = true }, { desc = 'Upload with manual reset' }) -- Upload with manual reset for UNO R4 WiFi
 --     end
 -- })
+
+-- Snacks
+-- Search
+map("n", "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find nvim Config File" })
+map('n', '<leader>sh', function() Snacks.picker.notifications() end, { desc = 'Search Notification History' })
+map('n', '<leader>sk', function() Snacks.picker.keymaps() end, { desc = 'Search Keymaps' })
+map('n', '<leader>sf', function() Snacks.picker.files() end, { desc = 'Search For File Names' })
+map('n', '<leader>ss', function() Snacks.picker.smart() end, { desc = 'Smart Search' })
+map('n', '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Search Current Word' })
+map('n', '<leader>sg', function() Snacks.picker.grep() end, { desc = 'Search Files with Grep' })
+map('n', '<leader>sd', function() Snacks.picker.diagnostics() end, { desc = 'Search Diagnostics' })
+map('n', '<leader>sr', function() Snacks.picker.resume() end, { desc = 'Search Resume' })
+map('n', '<leader>sp', function() Snacks.picker.projects() end, { desc = 'Search Projects' })
+map('n', '<leader>s.', function() Snacks.picker.recent() end, { desc = 'Search Recent Files ("." for repeat)' })
+map('n', '<leader>sb', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
+map('n', '<leader>sB', function() Snacks.picker.lines() end, { desc = 'Search Buffer Lines' })
+map('n', '<leader>bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
+map('n', 'bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
+-- map('n', '<S-j>', builtin.buffers, { desc = 'Search existing Buffers' })
+map('n', '<leader>uc', function() Snacks.picker.colorschemes() end, { desc = 'Search existing Colorschemes' })
+-- Git
+map('n', "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
+map('n', "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
+map('n', "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
+map('n', "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git Status" })
+map('n', "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash" })
+map('n', "<leader>gp", function() Snacks.picker.git_diff() end, { desc = "Git Diff Picker (Hunks)" })
+map('n', "<leader>gP", function() Snacks.picker.git_diff({ base = "origin" }) end, { desc = "Git Diff Picker(origin)" })
+map('n', "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
+map({ 'n', 'v' }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
+map('n', "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })

@@ -29,6 +29,9 @@ vim.pack.add({
     "https://github.com/nvim-mini/mini.surround",
     "https://github.com/nvim-mini/mini.nvim",
 
+    -- Snacks
+    "https://github.com/folke/snacks.nvim",
+
     -- Treesitter
     {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -71,6 +74,7 @@ require("plugins.arduino-nvim")
 require("plugins.built-ins")
 require("plugins.LSP")
 require("plugins.lualine")
+require("plugins.snacks")
 require("plugins.mini")
 require("plugins.mini-ai")
 require("plugins.mini-move")
