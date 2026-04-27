@@ -116,7 +116,6 @@ map('n', '<leader>uu', ':lua vim.pack.update()<cr>', { desc = 'Update plugins' }
 -- MiniStarter
 map('n', '<leader>um', ':lua MiniStarter.open()<cr>', { desc = 'Start MiniStarter' })
 
--- Snacks
 -- Search
 map("n", "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find nvim Config File" })
 map('n', '<leader>sh', function() Snacks.picker.notifications() end, { desc = 'Search Notification History' })
@@ -134,7 +133,7 @@ map('n', '<leader>sB', function() Snacks.picker.lines() end, { desc = 'Search Bu
 map('n', '<leader>bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
 map('n', 'bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
 map('n', '<leader>uc', function() Snacks.picker.colorschemes() end, { desc = 'Search existing Colorschemes' })
--- map('n', '<S-j>', builtin.buffers, { desc = 'Search existing Buffers' })
+
 -- Git
 map('n', "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
 map('n', "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
