@@ -63,17 +63,30 @@ map({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 -- Search
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 map('n', '<Leader>sl', function()
+    local match = vim.fn.expand("<cword>")
+    local replace = vim.fn.input("Replace with: ")
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+end
+, {desc = "Replace current word on current line"})
+map('n', '<Leader>sa', function()
+    local match = vim.fn.expand("<cword>")
+    local replace = vim.fn.input("Replace with: ")
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+end
+, {desc = "Replace all instances of current word"})
+map('n', '<Leader>sL', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Search and Replace on current line"})
-map('n', '<Leader>sa', function()
+map('n', '<Leader>sA', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Search and Replace all instances"})
+
 
 -- Neowiki note taking
 map('n','<Leader>n',"" ,{ desc = "NeoWiki notes" } )
