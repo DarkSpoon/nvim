@@ -60,7 +60,7 @@ map('v', 'x', '"_x', { desc = 'Delete character forever' })
 map({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
 map({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
 
--- Search
+-- Search and Replace
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 map('n', '<Leader>sl', function()
     local match = vim.fn.expand("<cword>")
@@ -158,46 +158,3 @@ map('n', "<leader>gP", function() Snacks.picker.git_diff({ base = "origin" }) en
 map('n', "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
 map({ 'n', 'v' }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
 map('n', "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
-
---File Specific stuff, now in ftplugin
--- Python 
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "python",
---     callback = function()
---         map("n", "<leader>pr", ':FloatermNew py %:p<cr>', {desc = 'Run Python Code'})
---     end
--- })
-
--- Arduino
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "arduino",
---     callback = function()
---         map("n", "<Leader>au", ":InoUpload<CR>", { buffer = true,  desc = 'Compile and Upload code' })  -- Upload code
---         map("n", "<Leader>ac", ":InoCheck<CR>", { buffer = true }, { desc = 'Compile code' })   -- Compile/check code
---         map("n", "<Leader>as", ":InoStatus<CR>", { buffer = true }, { desc = 'Show board and port status' })  -- Show current board and port status
---         map("n", "<Leader>ag", ":InoGUI<CR>", { buffer = true }, { desc = 'Set board and port' })     -- Open GUI for setting board and port
---         map("n", "<Leader>am", ":InoMonitor<CR>", { buffer = true }, { desc = 'Serial monitor' })     -- Open Serial monitor with default port and baud rate
---         map("n", "<Leader>al", ":InoLib<CR>", { buffer = true }, { desc = 'Library manager' })
---         map("n", "<Leader>ab", ":InoSelectBoard<CR>", { buffer = true }, { desc = 'Select board' })     -- open board selection gui
---         map("n", "<Leader>ap", ":InoSelectPort<CR>", { buffer = true }, { desc = 'Select port' }) -- open port selection gui
---         map("n", "<Leader>ar", ":InoUploadReset<CR>", { buffer = true }, { desc = 'Upload with manual reset' }) -- Upload with manual reset for UNO R4 WiFi
---     end
--- })
-
--- Go keybinds
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "go",
---     -- group = augroup("go"),
---     callback = function()
---         map('n', '<Leader>gl', ':GoLint<cr>', { desc = 'Go Linter', buffer = true } )
---     end
--- })
-
--- Powershell keybinds
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "ps1",
---     callback = function()
---         map({ 'n','v' }, '<Leader>gb', '<esc>i<#<cr>.SYNOPSIS<cr>.DESCRIPTION<cr>.PARAMETER $Param<cr>.INPUTS<cr>.OUTPUTS<cr>.EXAMPLE<cr>#><cr><esc>', { desc = 'Generate Powershell Usage', buffer = true } )
---     end
--- })
-
