@@ -43,14 +43,3 @@ wk.setup({
             },
         },
 })
-
-
---arduino bind descriptions
-wk.add({
-    { "<leader>a", group = "arduino" },
-})
-
--- Python group
-wk.add({
-    { "<leader>p", group = "python" },
-})

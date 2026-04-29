@@ -1,4 +1,6 @@
 -- Need to comment out keymaps in \nvim-data\site\pack\core\opt\Arduino-Nvim\lua\Arduino-Nvim\remap.lua
+
+require("which-key").add({{ "<leader>a", group = "arduino" }})
 local map = vim.keymap.set
 map("n", "<Leader>au", ":InoUpload<CR>", { buffer = true,  desc = 'Compile and Upload code' })  -- Upload code
 map("n", "<Leader>ac", ":InoCheck<CR>", { buffer = true,  desc = 'Compile code' })   -- Compile/check code
