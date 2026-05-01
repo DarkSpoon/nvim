@@ -27,4 +27,3 @@ end
 -- Setting shell quote options
 vim.o.shellquote = ''
 vim.o.shellxquote = ''
-

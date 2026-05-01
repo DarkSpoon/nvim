@@ -35,14 +35,15 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
--- Hilight the line on insert mode only
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+-- Disable line hilight on Insert mode
+vim.cmd("set cursorline")
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   group = augroup("HiCursor"),
   callback = function()
     vim.cmd("set cursorline")
   end,
 })
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   group = augroup("NoHiCursor"),
   callback = function()
     vim.cmd("set nocursorline")
