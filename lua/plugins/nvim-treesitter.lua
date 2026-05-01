@@ -2,6 +2,9 @@
 -- Download latest GCC (with POSIX threads) + MinGW-w64 (MSVCRT) from www.winlibs.com
 -- Extract to a directory ie: C:\ProgramData\mingw64\
 -- Add System Environment variable "CC" with path to mingw64\bin\x86_64-w64-mingw32-gcc.exe 
+-- OR
+-- winget install BrechtSanders.WinLibs.POSIX.MSVCRT.LLVM
+-- Add System Environment variable "CC" with path to ~\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.MSVCRT.LLVM...\mingw64\bin\x86_64-w64-mingw32-gcc.exe
 
 require("nvim-treesitter").install({
     "arduino",
