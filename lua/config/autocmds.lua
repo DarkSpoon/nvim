@@ -85,19 +85,3 @@ end
 
 local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
 vim.api.nvim_create_autocmd('BufEnter', { group = root_augroup, callback = set_root })
-
-
-
--- Treesitter
-vim.api.nvim_create_autocmd('FileType', {
-    -- pattern = { '<filetype>' },
-    pattern = { 'arduino','gitcommit', 'gitignore', 'ini', 'json', 'lua', 'make', 'markdown', 'markdown_inline', 'python', 'ps1', 'toml', 'vim', 'yaml' },
-    callback = function()
-        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        vim.wo[0][0].foldmethod = 'expr'
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        vim.opt.fillchars = { fold = " ", foldopen = "▾", foldclose = "▸", foldinner = " ", foldsep = " ", }
-        vim.treesitter.start()
-    end,
-})
-
