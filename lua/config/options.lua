@@ -37,3 +37,6 @@ vim.opt.termguicolors = true
 
 -- Disable inlay_hints
 -- vim.lsp.inlay_hint.enable(false)
+
+-- Disable folding, re-enable with zi
+vim.opt.foldenable = false
