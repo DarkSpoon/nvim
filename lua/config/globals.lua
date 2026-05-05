@@ -27,3 +27,10 @@ end
 -- Setting shell quote options
 vim.o.shellquote = ''
 vim.o.shellxquote = ''
+
+-- Prevent PS1 files being referred to as "ps1" filetype instead of "powershell"
+vim.filetype.add({
+    extension = {
+        ps1 = 'powershell',
+    }
+})
