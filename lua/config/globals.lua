@@ -28,9 +28,11 @@ end
 vim.o.shellquote = ''
 vim.o.shellxquote = ''
 
--- Prevent PS1 files being referred to as "ps1" filetype instead of "powershell"
+-- Add file extensions to powershell filetype to fix LSP issues
 vim.filetype.add({
     extension = {
         ps1 = 'powershell',
+        psd1 = 'powershell',
+        psm1 = 'powershell',
     }
 })
