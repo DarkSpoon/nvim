@@ -2,6 +2,9 @@ require('mason').setup()
 require('mason-lspconfig').setup({
     automatic_enable = true,
 })
+-- TODO: Filetype for powershell file extensions set in Globals so Treesitter triggers properly. 
+-- powershell_es only triggers on filetype 'ps1'. 
+-- Must add: 'powershell' to filetype in \nvim-data\site\pack\core\opt\nvim-lspconfig\lsp\powershell_es.lua
 require('mason-tool-installer').setup({
     ensure_installed = {
         "lua_ls",
