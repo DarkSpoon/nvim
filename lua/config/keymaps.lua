@@ -29,7 +29,6 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
-
 -- /Snagged from LazyVim config --
 
 -- Files
@@ -47,18 +46,13 @@ map('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 map('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 
 -- Black hole delete
-map('n', 'd', '"_d', { desc = 'Delete text forever' })
-map('v', 'd', '"_d', { desc = 'Delete text forever' })
-map('n', 'dd', '"_dd', { desc = 'Delete line forever' })
-map('v', 'dd', '"_dd', { desc = 'Delete line forever' })
-map('n', '<Del>', '"_x', { desc = 'Delete character forever' })
-map('v', '<Del>', '"_x', { desc = 'Delete character forever' })
-map('n', 'x', '"_x', { desc = 'Delete character forever' })
-map('v', 'x', '"_x', { desc = 'Delete character forever' })
+map({ 'n', 'v' }, 'd', '"_d', { desc = 'Delete text forever' })
+map({ 'n', 'v' }, '<S-d>', '"_d$', { desc = 'Delete to end of line forever' })
+map({ 'n', 'v' }, '<Del>', '"_x', { desc = 'Delete character forever' })
+map({ 'n', 'v' }, 'x', '"_x', { desc = 'Delete character forever' })
 
 -- Yank then Delete
-map({'n','v'}, '<C-x>', 'd', { desc = 'Cut text' })
-map({'n','v'}, '<C-x><C-x>', 'dd', { desc = 'Cut text' })
+map({ 'n', 'v' }, '<C-x>', 'd', { desc = 'Cut text' })
 
 -- Search and Replace
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
@@ -68,18 +62,21 @@ map('n', '<Leader>sl', function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Replace current word on current line"})
+
 map('n', '<Leader>sa', function()
     local match = vim.fn.expand("<cword>")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Replace all instances of current word"})
+
 map('n', '<Leader>sL', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
 end
 , {desc = "Search and Replace on current line"})
+
 map('n', '<Leader>sA', function()
     local match = vim.fn.input("Find: ")
     local replace = vim.fn.input("Replace with: ")
@@ -100,7 +97,6 @@ map('n','<Leader>ni', "", { desc = "Insert wiki page" } )
 map('n','<Leader>nc', "", { desc = "Cleanup links in wiki page" } )
 
 -- Buffer stuff
--- bs set for buffer search in Snacks keymaps below, previously in Telescope config
 map('n','<Leader>bd', ':bd<cr>', { desc = 'Delete current buffer' } )
 map('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 map('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
@@ -113,12 +109,11 @@ map('n', 'bp', ':bprevious<cr>', { desc = 'Previous buffer' })
 map("n", 'bf', ':bfirst<cr>', { desc = 'First Buffer' })
 map("n", 'bl', ':blast<cr>', { desc = "Last Buffer" })
 map('n', 'bw', ':w<cr>:bd<cr>', { desc = "Save and delete current buffer" } )
+map('n', 'bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
 
 -- Yazi <cmd>
-map('n', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
-map('v', '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
-map('n', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
-map('v', '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+map({ 'n', 'v' }, '<F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
+map({ 'n', 'v' }, '<leader><F6>', ':Yazi<CR>', { desc = 'Launch Yazi' })
 
 -- LSP
 map('i', '<C-Space>', '<C-x><C-o>', { desc = 'Omnicomplete Code' })
@@ -144,7 +139,6 @@ map('n', '<leader>sr', function() Snacks.picker.recent() end, { desc = 'Search R
 map('n', '<leader>sb', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
 map('n', '<leader>sB', function() Snacks.picker.lines() end, { desc = 'Search Buffer Lines' })
 map('n', '<leader>bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
-map('n', 'bs', function() Snacks.picker.buffers() end, { desc = 'Search Open Buffers' })
 map('n', '<leader>uc', function() Snacks.picker.colorschemes() end, { desc = 'Search existing Colorschemes' })
 
 -- Git
@@ -156,5 +150,10 @@ map('n', "<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git S
 map('n', "<leader>gp", function() Snacks.picker.git_diff() end, { desc = "Git Diff Picker (Hunks)" })
 map('n', "<leader>gP", function() Snacks.picker.git_diff({ base = "origin" }) end, { desc = "Git Diff Picker(origin)" })
 map('n', "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
-map({ 'n', 'v' }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
+map('n', "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
 map('n', "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
+
+-- fuck q
+map({'n','v',}, 'Q', 'q', { desc = "Record macro with Q" })
+map({'n','v',}, '<leader>q', 'q', { desc = "Record Macro" })
+map({'n','v',}, 'q', '<Nop>', { desc = "disable macro recording with q" })
