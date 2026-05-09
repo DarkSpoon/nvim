@@ -43,6 +43,7 @@ map('n', '<leader>xq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quic
 
 -- Floaterm keymaps
 map('n', '<F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
+map('n', '<leader><F7>', ':FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 map('t', '<F7>', '<C-n>:FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
 
 -- Black hole delete
