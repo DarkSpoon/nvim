@@ -1,6 +1,6 @@
   -- [[ Configure Telescope ]]
   -- See `:help telescope` and `:help telescope.setup()`
-  local builtin = require 'telescope.builtin'
+  -- local builtin = require 'telescope.builtin'
   local actions = require 'telescope.actions'
 
   require('telescope').setup {
