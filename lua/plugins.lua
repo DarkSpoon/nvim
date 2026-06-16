@@ -28,6 +28,7 @@ vim.pack.add({
     "https://github.com/nvim-mini/mini.starter",
     "https://github.com/nvim-mini/mini.surround",
     "https://github.com/nvim-mini/mini.nvim",
+    "https://github.com/nvim-mini/mini.input",
 
     -- Snacks
     "https://github.com/folke/snacks.nvim",
@@ -77,6 +78,7 @@ require("plugins.lualine")
 require("plugins.snacks")
 require("plugins.mini")
 require("plugins.mini-ai")
+require("plugins.mini-input")
 require("plugins.mini-move")
 require("plugins.mini-surround")
 require("plugins.neowiki")

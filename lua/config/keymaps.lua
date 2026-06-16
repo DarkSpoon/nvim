@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 local Snacks = require("snacks")
+local MiniInput = require("mini.input")
 
 -- Snagged from LazyVim config --
 --Better up/down
@@ -59,29 +60,55 @@ map({ 'n', 'v' }, '<C-x>', 'd', { desc = 'Cut text' })
 map('n', '<Leader>sc', ':noh<CR>', {desc = "Clear search results"})
 map('n', '<Leader>sl', function()
     local match = vim.fn.expand("<cword>")
-    local replace = vim.fn.input("Replace with: ")
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    -- local replace = vim.fn.input("Replace with: ")
+    local replace = MiniInput.get({
+        prompt = 'Replace with:'
+    })
+    if match and replace then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    end
 end
 , {desc = "Replace current word on current line"})
 
 map('n', '<Leader>sa', function()
     local match = vim.fn.expand("<cword>")
-    local replace = vim.fn.input("Replace with: ")
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    -- local replace = vim.fn.input("Replace with: ")
+    local replace = MiniInput.get({
+        prompt = 'Replace with:'
+    })
+    if match and replace then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    end
 end
 , {desc = "Replace all instances of current word"})
 
 map('n', '<Leader>sL', function()
-    local match = vim.fn.input("Find: ")
-    local replace = vim.fn.input("Replace with: ")
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    -- local match = vim.fn.input("Find: ")
+    local match = MiniInput.get({
+        prompt = 'Find:      '
+    })
+    -- local replace = vim.fn.input("Replace with: ")
+    local replace = MiniInput.get({
+        prompt = 'Replace with:'
+    })
+    if match and replace then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    end
 end
 , {desc = "Search and Replace on current line"})
 
 map('n', '<Leader>sA', function()
-    local match = vim.fn.input("Find: ")
-    local replace = vim.fn.input("Replace with: ")
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    -- local match = vim.fn.input("Find: ")
+    local match = MiniInput.get({
+        prompt = 'Find:      '
+    })
+    -- local replace = vim.fn.input("Replace with: ")
+    local replace = MiniInput.get({
+        prompt = 'Replace with:'
+    })
+    if match and replace then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':%s/'..match..'/'..replace..'<CR>',true,false,true), 'n', false)
+    end
 end
 , {desc = "Search and Replace all instances"})
 
