@@ -9,6 +9,7 @@ vim.pack.add({
     -- Colorschemes
     "https://github.com/catppuccin/nvim",
     "https://github.com/ellisonleao/gruvbox.nvim",
+    "https://github.com/kbraggins/duskhaven.nvim",
 
     -- LSP
     "https://github.com/mason-org/mason.nvim",
@@ -70,6 +71,7 @@ vim.pack.add({
 --configure plugins
 require("plugins.catppuccin")
 require("plugins.gruvbox")
+require("plugins.duskhaven")
 require("plugins.fidget")
 require("plugins.arduino-nvim")
 require("plugins.built-ins")
