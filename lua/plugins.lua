@@ -10,6 +10,7 @@ vim.pack.add({
     "https://github.com/catppuccin/nvim",
     "https://github.com/ellisonleao/gruvbox.nvim",
     "https://github.com/kbraggins/duskhaven.nvim",
+    "https://github.com/WTFox/luna.nvim",
 
     -- LSP
     "https://github.com/mason-org/mason.nvim",
@@ -72,6 +73,7 @@ vim.pack.add({
 require("plugins.catppuccin")
 require("plugins.gruvbox")
 require("plugins.duskhaven")
+require("plugins.luna")
 require("plugins.fidget")
 require("plugins.arduino-nvim")
 require("plugins.built-ins")
