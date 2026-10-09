@@ -17,6 +17,7 @@ local langs = {
     "markdown", "markdown_inline",
     "powershell",
     "python",
+    "regex",
     "toml",
     "vim",
     "yaml"
